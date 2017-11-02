@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Accueil de la Billeterie</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="container">
+            <div id="welcome">
+                <h1><span>Paiement par Stripe</span> Billeterie du louvre</h1>
+            </div>
+            <h2> Voici le récapitulatif de la commande au nom de {{ commande.nom }} {{ commande.prenom }}</h2>
+
+            {% for ticket in commande.tickets %}
+            <h3> Informations Ticket:</h3>
+            <ul>
+                <li> Identité: Ticket au nom de {{ ticket.nomTicket }} {{ ticket.prenomTicket }} </li>
+                <li> Type de ticket:  {{ commande.typeTicket }}</li>
+                <li> Tarif réduit : {{ ticket.tarif }}</li>
+                <li> Prix du ticket: {{ ticket.prix }} €</li>
+            </ul>
+            {% endfor %}
+
+            <h2> Montant total: {{ commande.prixCommande }} €</h2>
+        </br>
+
+            <div id="status">
+                <form action="{{ path('louvre_checkout') }}" method="POST">
+                    <script
+                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="pk_test_sepPe6kxjEpKEnIp3qfQ9tDV"
+                            data-amount="{{ commande.prixCommande *100 }}"
+                            data-name="Billeterie Louvre"
+                            data-description="Widget"
+                            data-locale="auto"
+                            data-currency="eur">
+                    </script>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

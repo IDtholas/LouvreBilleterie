@@ -28,7 +28,9 @@ class TicketType extends AbstractType
                 'label' => 'Tarif réduit',
                 'choices' => array('oui' => TRUE, 'non' => FALSE)
             ))
-            ->add('dateDeNaissance', DateType::class);
+            ->add('dateDeNaissance', DateType::class, [
+                'widget' => 'single_text'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
