@@ -1,0 +1,11 @@
+louvre_accueil:
+    path:   /
+    defaults: { _controller: AppBundle:Louvre:accueil}
+
+louvre_commande:
+    path:   /commande
+    defaults: { _controller: AppBundle:Louvre:commande}
+
+louvre_ticket:
+    path:   /commande/ticket
+    defaults: { _controller: AppBundle:Louvre:ticket}
