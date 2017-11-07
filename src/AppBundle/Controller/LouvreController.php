@@ -141,4 +141,14 @@ class LouvreController extends Controller
         }
     }
 
+    public function informationsAction()
+    {
+        return $this->render('informations.html.twig');
+    }
+
+    public function aideAction()
+    {
+        return $this->render('aide.html.twig');
+    }
+
 }

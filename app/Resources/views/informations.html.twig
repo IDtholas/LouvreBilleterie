@@ -1,0 +1,29 @@
+{%  extends 'base.html.twig' %}
+
+{% block body %}
+    <aside class="banner">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 my-auto">
+                    <h2>Informations générales sur la billeterie :</h2>
+                </div>
+                <div class="col-lg-6 my-auto">
+                    <ul class="list-inline banner-social-buttons">
+                        <li class="list-inline-item">
+                            <a href="{{ path('louvre_commande') }}" class="btn btn-secondary btn-lg">
+                                <i class="fa fa-check-square-o fa-fw"></i>
+                                <span class="network-name">Démarrez ma commande</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- /.container -->
+    </aside>
+
+    </br>
+
+{% endblock %}

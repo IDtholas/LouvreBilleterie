@@ -21,3 +21,11 @@ louvre_prepare:
 louvre_checkout:
     path:    /commande/checkout
     defaults: { _controller: AppBundle:Louvre:checkout}
+
+louvre_informations:
+    path:    /informations
+    defaults: { _controller: AppBundle:Louvre:informations}
+
+louvre_aide:
+    path:    /aide
+    defaults: { _controller: AppBundle:Louvre:aide}

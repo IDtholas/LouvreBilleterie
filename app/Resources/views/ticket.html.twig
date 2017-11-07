@@ -1,15 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>Accueil de la Billeterie</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container">
-    <div id="header" class="jumbotron">
-        <h1 class="text-center"> Billeterie du musée du Louvre</h1>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<aside class="banner">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 my-auto">
+                <h2>Complétez votre commande</h2>
+                <p> Merci de remplir les informations demandées</p>
+            </div>
+        </div>
+
     </div>
+    <!-- /.container -->
+</aside>
+
+</br>
 
     {% for message in app.flashes('error') %}
         <div class="alert alert-notice">
@@ -17,19 +24,19 @@
         </div>
     {% endfor %}
 
-    <div class="well">
+    <div class="container">
         {{ form_start(form) }}
-        {{ form_label(form.tickets) }}
+        <h1>{{ form_label(form.tickets) }}</h1>
         {{ form_errors(form.tickets) }}
         {{ form_widget(form.tickets) }}
-        <a href="#" id="add_ticket" class="btn btn-default">Ajouter un ticket</a>
+        <a href="#" id="add_ticket" class="btn btn-secondary btn-md">Ajouter un ticket</a>
 
-    </div>
     <div>
-        </br>
-        <button type="submit" class="btn btn-default">Confirmez vos Tickets </button>
+        </br> <hr>
+        <button type="submit" class="btn btn-secondary btn-lg">Confirmez vos Tickets </button>
         {{ form_end(form) }}
     </div>
+    </br>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -85,4 +92,4 @@
     });
 </script>
 
-</body>
+{% endblock %}

@@ -31,7 +31,8 @@ class TicketType extends AbstractType
                     'max' => 50,
                     'minMessage' => "Le nom doit contenir au moins 2 caractères.",
                     'maxMessage' => "Le nom ne peux contenir plus de 50 caractères."
-                ])]])
+                ])],
+            'label' => 'Nom :',])
             ->add('prenomTicket', TextType::class, [
                 'constraints' => [
                     new NotBlank(),
@@ -41,10 +42,13 @@ class TicketType extends AbstractType
                         'max' => 50,
                         'minMessage' => "Le prénom doit contenir au moins 2 caractères.",
                         'maxMessage' => "Le prénom ne peux contenir plus de 50 caractères."
-                    ])]])
-            ->add('pays', CountryType::class)
+                    ])],
+                'label' => 'Prénom :',])
+            ->add('pays', CountryType::class, [
+                'label' => 'Pays :',
+            ])
             ->add('tarif', ChoiceType::class, array(
-                'label' => 'Tarif réduit',
+                'label' => 'Tarif réduit :',
                 'choices' => array('oui' => TRUE, 'non' => FALSE)
             ))
             ->add('dateDeNaissance', DateType::class,[
@@ -52,6 +56,7 @@ class TicketType extends AbstractType
                     new NotBlank(),
                     new BirthdayNotPassed(),
                 ],
+                'label' => 'Date de naissance :',
                 'widget' => 'single_text',
             ]);
     }

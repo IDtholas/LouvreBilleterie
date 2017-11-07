@@ -57,9 +57,9 @@ class DebutCommandeType extends AbstractType
             ->add('dateDeVisite', DateType::class,[
                 'constraints' => [
                     new NotBlank(),
+                    new ClosedMuseum(),
                     new Afternoon(),
                     new PastDays(),
-                    new ClosedMuseum(),
                     new Holiday(),
                 ],
                 'widget' => 'single_text',

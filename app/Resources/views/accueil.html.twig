@@ -1,20 +1,95 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>Accueil de la Billeterie</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container-fluid">
-    <div id="header" class="jumbotron">
-        <h1 class="text-center"> Billeterie du musée du Louvre</h1>
-    </div>
-    <div class="row">
-        <div> <p class="text-center"><a href="{{ path('louvre_commande') }}">Passez une nouvelle</a></p></div>
-        <div> <p class="text-center">retrouvez votre ancienne commande</p></div>
-    </div>
-</div>
+{% extends 'base.html.twig' %}
 
-</body>
-</html>
+{% block body %}
+<!-- Header -->
+<header class="intro-header" style="background: url({{ asset('img/louvre.jpg') }})">
+    <div class="container">
+        <div class="intro-message">
+            <h1>Billeterie du Musée du Louvre</h1>
+            <h3>Commandez vos billets, 100% en ligne, 100% sécurisé</h3>
+            <hr class="intro-divider">
+            <ul class="list-inline intro-social-buttons">
+                <li class="list-inline-item">
+                    <a href="{{ path('louvre_commande') }}" class="btn btn-secondary btn-lg">
+                        <i class="fa fa-book fa-fw"></i>
+                        <span class="network-name">Démarrez votre commande</span>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#" class="btn btn-secondary btn-lg">
+                        <i class="fa fa-search fa-fw"></i>
+                        <span class="network-name">Retrouvez votre commande</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- Page Content -->
+<section class="content-section-a">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 ml-auto">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Plus de file d'attente:</h2>
+                <p class="lead"> Achetez vos billets et récupérez les tranquillement depuis votre domicile. Plus besoin d'attendre au guichet! Simplifiez-vous la vie.</p>
+            </div>
+            <div class="col-lg-5 mr-auto">
+                <img class="img-fluid" src="{{ asset('img/fileattente.jpg') }}" alt="image file d'attente">
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+</section>
+
+<section class="content-section-b">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-5 mr-auto order-lg-2">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Un service simple:</h2>
+                <p class="lead">Cliquez sur le bouton "démarrez votre commande", et laissez-vous guider. La commande se fera pas à pas, complètement personnalisable.
+                Choississez le nombre de billets que vous désirez, remplissez les, payez, et recevez les instantanément. Toutes les étapes sont claires, et vous sont expliquées pas à pas. </p>
+            </div>
+            <div class="col-lg-5 ml-auto order-lg-1">
+                <img class="img-fluid" src="{{ asset('img/commande.png') }}" alt="image de commande">
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</section>
+<!-- /.content-section-b -->
+
+<section class="content-section-a">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-5 ml-auto">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Un service sécurisé:</h2>
+                <p class="lead"> Toutes l'interface de commande est complètement sécurisée. Vos informations personnelles ne seront pas dévoilées et resteront confidentielles.
+                Le paiement s'effectue grace au service <a href ="https://stripe.com/fr?&utm_campaign=paid_brand&utm_medium=cpc&utm_source=google&ad_content=219263686294&utm_term=stripe&utm_matchtype=e&utm_adposition1t1&utm_device=c&gclid=CjwKCAiA0IXQBRA2EiwAMODil5JadtvGtycHPN-CtXQDpIAsPB5h4nBEX1lHl_jdQ6hyj2FDPt298xoCbbMQAvD_BwE"> Stripe</a>
+                , mondialement renommé pour sa fiabilité.</p>
+            </div>
+            <div class="col-lg-5 mr-auto ">
+                <img class="img-fluid" src="{{ asset('img/paiement.jpg') }}" alt="">
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</section>
+
+{% endblock %}

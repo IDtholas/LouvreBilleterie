@@ -1,33 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>Accueil de la Billeterie</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-</head>
-<body>
-    <div>
-        <div id="container">
-            <div>
-                <h1><span>Paiement par Stripe</span> Billeterie du louvre</h1>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<aside class="banner">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-6 my-auto">
+                <h2>Vérifiez les informations entrées:</h2>
             </div>
+            <div class="col-lg-6 my-auto">
+                <ul class="list-inline banner-social-buttons">
+                    <li class="list-inline-item">
+                        <a href="{{ path('louvre_commande') }}" class="btn btn-secondary btn-lg">
+                            <i class="fa fa-ban fa-fw"></i>
+                            <span class="network-name">Je souhaite recommencer ma commande.</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+    </div>
+    <!-- /.container -->
+</aside>
+
+</br>
             {% for message in app.flashes('error') %}
                 <div class="alert alert-notice">
                     {{ message }}
                 </div>
             {% endfor %}
-
-            <h2> Voici le récapitulatif de la commande au nom de {{ commande.nom }} {{ commande.prenom }}</h2>
+<div class="container">
+    <h2> Voici le récapitulatif de la commande</h2><hr>
+    <h1>Commande au nom de :{{ commande.nom }} {{ commande.prenom }}</h1></br>
 
             {% for ticket in commande.tickets %}
-            <h3> Informations Ticket:</h3>
+            <h3> Informations Billets:</h3>
             <ul>
-                <li> Identité: Ticket au nom de {{ ticket.nomTicket }} {{ ticket.prenomTicket }} </li>
-                <li> Type de ticket:  {{ commande.typeTicket }}</li>
+                <li> Identité : Billet au nom de {{ ticket.nomTicket }} {{ ticket.prenomTicket }} </li>
+                <li> Type de Billet :  {{ commande.typeTicket }}</li>
                 <li> Tarif réduit : {{ ticket.tarif }}</li>
-                <li> Prix du ticket: {{ ticket.prix }} €</li>
+                <li> Prix du Billet : {{ ticket.prix }} €</li>
             </ul>
             {% endfor %}
+            </br><hr>
 
             <h2> Montant total: {{ commande.prixCommande }} €</h2>
         </br>
@@ -45,6 +61,7 @@
                     </script>
                 </form>
             </div>
-        </div>
-    </div>
-</body>
+    </br>
+</div>
+
+{% endblock %}
