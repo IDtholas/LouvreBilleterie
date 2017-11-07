@@ -3,10 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Commande;
+use AppBundle\Entity\Ticket;
 use AppBundle\Form\CommandeType;
 use AppBundle\Form\DebutCommandeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM;
 
 class LouvreController extends Controller
 {
@@ -41,51 +43,61 @@ class LouvreController extends Controller
         $form = $this->createForm(CommandeType::class, $commande);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()) {
 
-            $tickets = $commande->getTickets();
-            $prixCommande = 0;
+            $nbTicketSaved = count($this->getDoctrine()->getRepository(Ticket::class)->getTicketByDay($commande->getDateDeVisite()));
+            $nbTicketOrdered = count($commande->getTickets());
+
+            if (($nbTicketSaved + $nbTicketOrdered) < 1000) {
+
+                $tickets = $commande->getTickets();
+                $prixCommande = 0;
 
 
-            foreach ($tickets as $ticket)
-            {
-                $age = date_diff( $ticket->getDateDeNaissance(), $commande->getDateDeVisite())->y;
+                foreach ($tickets as $ticket) {
+                    $age = date_diff($ticket->getDateDeNaissance(), $commande->getDateDeVisite())->y;
 
-                switch ($age) {
-                    case $age > 4 && $age < 12:
-                        $ticket->setPrix(8) ;
-                        break;
-                    case $age < 4:
-                        $ticket->setPrix(0);
-                        break;
-                    case $age >= 60:
-                        $ticket->setPrix(12);
-                        break;
-                    case $ticket->getTarif() === TRUE :
-                        $ticket->setPrix(10);
-                        break;
-                    default:
-                        $ticket->setPrix(16);
-                        break;
+                    switch ($age) {
+                        case $age > 4 && $age < 12:
+                            $ticket->setPrix(8);
+                            break;
+                        case $age < 4:
+                            $ticket->setPrix(0);
+                            break;
+                        case $age >= 60:
+                            $ticket->setPrix(12);
+                            break;
+                        default:
+                            $ticket->setPrix(16);
+                            break;
+                    }
+
+                    if($ticket->getTarif() === TRUE){
+                            $ticket->setPrix(10);}
+
+                    if ($commande->getTypeTicket() === 'Demi journée') {
+                        $prix = $ticket->getPrix();
+                        $prixFinal = ($prix / 2);
+                        $ticket->setPrix($prixFinal);
+
+                    }
+                    $prixCommande += $ticket->getPrix();
+                    $ticket->setCommande($commande);
                 }
 
-                if ($commande->getTypeTicket() === 'Demi journée')
-                {
-                    $prix = $ticket->getPrix();
-                    $prixFinal = ($prix/2);
-                    $ticket->setPrix($prixFinal);
+                $commande->setPrixCommande($prixCommande);
 
-                }
-                $prixCommande = $prixCommande + $ticket->getPrix();
+                $session = $request->getSession();
+                $session->set('commande', $commande);
+
+
+                return $this->render('prepare.html.twig', array('commande' => $commande));
             }
 
-            $commande->setPrixCommande($prixCommande);
-
-            $session = $request->getSession();
-            $session->set('commande', $commande);
+            $this->addFlash("error","Il ne reste plus assez de places disponibles pour ce jour.");
+            return $this->render('ticket.html.twig', array('form' => $form->createView(), 'commande' => $commande));
 
 
-            return $this->render('prepare.html.twig', array('commande' => $commande));
         }
 
         return $this->render('ticket.html.twig', array('form' => $form->createView(), 'commande' => $commande));
@@ -94,11 +106,6 @@ class LouvreController extends Controller
     public function confirmationAction()
     {
         return $this->render('confirmation.html.twig');
-    }
-
-    public function prepareAction()
-    {
-        return $this->render('prepare.html.twig');
     }
 
     public function checkoutAction(Request $request)
@@ -118,7 +125,7 @@ class LouvreController extends Controller
                 "source" => $token,
                 "description" => "Paiement Stripe - Billeterie Louvre"
             ));
-            $this->addFlash("success","Bravo ça marche !");
+            $this->addFlash("success","Le paiement est un succès.");
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($commande);
@@ -129,8 +136,8 @@ class LouvreController extends Controller
 
         } catch(\Stripe\Error\Card $e) {
 
-            $this->addFlash("error","Snif ça marche pas :(");
-            return $this->redirectToRoute("louvre_confirmation");
+            $this->addFlash("error","Le paiement a échoué, merci de recommencer.");
+            return $this->redirectToRoute("louvre_prepare");
         }
     }
 

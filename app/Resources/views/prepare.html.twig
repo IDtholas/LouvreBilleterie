@@ -6,11 +6,17 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div id="wrapper">
+    <div>
         <div id="container">
-            <div id="welcome">
+            <div>
                 <h1><span>Paiement par Stripe</span> Billeterie du louvre</h1>
             </div>
+            {% for message in app.flashes('error') %}
+                <div class="alert alert-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
             <h2> Voici le récapitulatif de la commande au nom de {{ commande.nom }} {{ commande.prenom }}</h2>
 
             {% for ticket in commande.tickets %}
@@ -26,7 +32,7 @@
             <h2> Montant total: {{ commande.prixCommande }} €</h2>
         </br>
 
-            <div id="status">
+            <div>
                 <form action="{{ path('louvre_checkout') }}" method="POST">
                     <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"

@@ -10,4 +10,15 @@ namespace AppBundle\Repository;
  */
 class TicketRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getTicketByDay($dateDeVisite)
+    {
+        return $this->createQueryBuilder('t')
+            ->innerJoin('t.commande', 'commande')
+            ->addSelect('commande')
+            ->where('commande.dateDeVisite = :date')
+            ->setParameter('date', $dateDeVisite)
+            ->getQuery()
+            ->getResult();
+    }
+
 }

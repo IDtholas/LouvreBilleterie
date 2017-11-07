@@ -21,8 +21,26 @@ class TicketType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomTicket', TextType::class)
-            ->add('prenomTicket', TextType::class)
+        $builder->add('nomTicket', TextType::class, [
+            'constraints' => [
+                new NotBlank(),
+                new Type('string'),
+                new Length([
+                    'min' => 2,
+                    'max' => 50,
+                    'minMessage' => "Le nom doit contenir au moins 2 caractères.",
+                    'maxMessage' => "Le nom ne peux contenir plus de 50 caractères."
+                ])]])
+            ->add('prenomTicket', TextType::class, [
+                'constraints' => [
+                    new NotBlank(),
+                    new Type('string'),
+                    new Length([
+                        'min' => 2,
+                        'max' => 50,
+                        'minMessage' => "Le prénom doit contenir au moins 2 caractères.",
+                        'maxMessage' => "Le prénom ne peux contenir plus de 50 caractères."
+                    ])]])
             ->add('pays', CountryType::class)
             ->add('tarif', ChoiceType::class, array(
                 'label' => 'Tarif réduit',
@@ -30,6 +48,10 @@ class TicketType extends AbstractType
             ))
             ->add('dateDeNaissance', DateType::class, [
                 'widget' => 'single_text'
+            ],[
+                'constraints' => [
+                    new Type('datetime'),
+                ]
             ]);
     }
 

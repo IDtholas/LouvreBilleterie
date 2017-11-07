@@ -10,6 +10,11 @@
     <div id="header" class="jumbotron">
         <h1 class="text-center"> Billeterie du musée du Louvre</h1>
     </div>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
     <div class="row">
         <div> <p class="text-center">Merci d'avoir passé commande</p></div>
     </div>

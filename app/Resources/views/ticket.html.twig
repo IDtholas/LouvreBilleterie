@@ -11,6 +11,12 @@
         <h1 class="text-center"> Billeterie du musée du Louvre</h1>
     </div>
 
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div class="well">
         {{ form_start(form) }}
         {{ form_label(form.tickets) }}

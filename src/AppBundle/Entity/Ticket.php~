@@ -43,9 +43,9 @@ class Ticket
     private $pays;
 
     /**
-     * @var string
+     * @var \datetime
      *
-     * @ORM\Column(name="dateDeNaissance", type="string", length=255)
+     * @ORM\Column(name="dateDeNaissance", type="datetime")
      */
     private $dateDeNaissance;
 
@@ -59,7 +59,7 @@ class Ticket
     /**
      * @var bool
      *
-     * @ORM\Column(name="tarid", type="boolean")
+     * @ORM\Column(name="tarif", type="boolean")
      */
     private $tarif;
 
@@ -222,5 +222,28 @@ class Ticket
     {
         return $this->tarif;
     }
-}
 
+    /**
+     * Set commande
+     *
+     * @param \AppBundle\Entity\Commande $commande
+     *
+     * @return Ticket
+     */
+    public function setCommande(\AppBundle\Entity\Commande $commande = null)
+    {
+        $this->commande = $commande;
+
+        return $this;
+    }
+
+    /**
+     * Get commande
+     *
+     * @return \AppBundle\Entity\Commande
+     */
+    public function getCommande()
+    {
+        return $this->commande;
+    }
+}
