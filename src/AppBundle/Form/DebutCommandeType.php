@@ -1,6 +1,12 @@
 <?php
 namespace AppBundle\Form;
 
+use AppBundle\Validator\Afternoon;
+use AppBundle\Validator\AfternoonAndPastDays;
+use AppBundle\Validator\ClosedMuseum;
+use AppBundle\Validator\Holiday;
+use AppBundle\Validator\PastDay;
+use AppBundle\Validator\PastDays;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -48,8 +54,15 @@ class DebutCommandeType extends AbstractType
                     new Constraints\Email()
                 ],
             ])
-            ->add('dateDeVisite', DateType::class, [
-                'widget' => 'single_text'
+            ->add('dateDeVisite', DateType::class,[
+                'constraints' => [
+                    new NotBlank(),
+                    new Afternoon(),
+                    new PastDays(),
+                    new ClosedMuseum(),
+                    new Holiday(),
+                ],
+                'widget' => 'single_text',
             ])
             ->add('typeTicket', ChoiceType::class, array(
                 'choices' => array(

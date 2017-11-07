@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: alexa
  * Date: 03/11/2017
- * Time: 14:40
+ * Time: 14:50
  */
 
 namespace AppBundle\Validator;
@@ -11,15 +11,13 @@ namespace AppBundle\Validator;
 
 use Symfony\Component\Validator\Constraint;
 
-class MuseeFerme extends Constraint
+class Afternoon extends Constraint
 {
-
-    public $message = "Le musée du Louvre est fermé tous le mardi, merci de choisir un autre jour.";
+    public $message = "La date de visite ne peut être pour un jour antérieur, ou le même jour une fois 14h passé.";
 
     public function validatedBy()
     {
         return get_class($this).'Validator';
     }
-
 
 }

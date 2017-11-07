@@ -3,6 +3,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Validator\BirthdayNotPassed;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -46,12 +47,12 @@ class TicketType extends AbstractType
                 'label' => 'Tarif réduit',
                 'choices' => array('oui' => TRUE, 'non' => FALSE)
             ))
-            ->add('dateDeNaissance', DateType::class, [
-                'widget' => 'single_text'
-            ],[
+            ->add('dateDeNaissance', DateType::class,[
                 'constraints' => [
-                    new Type('datetime'),
-                ]
+                    new NotBlank(),
+                    new BirthdayNotPassed(),
+                ],
+                'widget' => 'single_text',
             ]);
     }
 

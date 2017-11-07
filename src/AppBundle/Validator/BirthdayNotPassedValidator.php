@@ -16,7 +16,11 @@ class BirthdayNotPassedValidator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint)
     {
-        // TODO: Implement validate() method.
+       $date = new \DateTime();
+
+       if ($date < $value)
+       {$this->context->buildViolation($constraint->message)
+           ->addViolation();}
     }
 
 

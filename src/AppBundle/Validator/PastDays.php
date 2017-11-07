@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: alexa
- * Date: 03/11/2017
- * Time: 15:06
+ * Date: 07/11/2017
+ * Time: 13:30
  */
 
 namespace AppBundle\Validator;
@@ -11,10 +11,9 @@ namespace AppBundle\Validator;
 
 use Symfony\Component\Validator\Constraint;
 
-
-class BirthdayNotPassed extends Constraint
+class PastDays extends Constraint
 {
-    public $message = 'La date de naissance entrée ne peut pas être future.';
+    public $message = "La date de visite ne peut être une date antérieure à la date actuelle.";
 
     public function validatedBy()
     {

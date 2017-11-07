@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: alexa
- * Date: 03/11/2017
- * Time: 14:46
+ * Date: 07/11/2017
+ * Time: 13:30
  */
 
 namespace AppBundle\Validator;
@@ -12,12 +12,15 @@ namespace AppBundle\Validator;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
-class MuseeFermeValidator extends ConstraintValidator
+class PastDaysValidator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint)
     {
-        // TODO: Implement validate() method.
-    }
+       $currentDate = new \DateTime();
 
+        if ($currentDate > $value)
+        {$this->context->buildViolation($constraint->message)
+            ->addViolation();}
+    }
 
 }

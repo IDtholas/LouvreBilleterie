@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: alexa
  * Date: 03/11/2017
- * Time: 14:50
+ * Time: 15:09
  */
 
 namespace AppBundle\Validator;
@@ -11,13 +11,14 @@ namespace AppBundle\Validator;
 
 use Symfony\Component\Validator\Constraint;
 
-class DemiJournee extends Constraint
+class Holiday extends Constraint
 {
-    public $message = "Il n'est pas possible de commander pour le même jour 14h passé.";
+    public $message = "Le musée du Louvre est fermé à la date sélectionné.";
 
     public function validatedBy()
     {
         return get_class($this).'Validator';
     }
+
 
 }
