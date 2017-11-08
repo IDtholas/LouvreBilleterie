@@ -51,48 +51,14 @@ class LouvreController extends Controller
 
             if (($nbTicketSaved + $nbTicketOrdered) < 1000) {
 
-                $tickets = $commande->getTickets();
-                $prixCommande = 0;
-
-
-                foreach ($tickets as $ticket) {
-                    $age = date_diff($ticket->getDateDeNaissance(), $commande->getDateDeVisite())->y;
-
-                    switch ($age) {
-                        case $age > 4 && $age < 12:
-                            $ticket->setPrix(8);
-                            break;
-                        case $age < 4:
-                            $ticket->setPrix(0);
-                            break;
-                        case $age >= 60:
-                            $ticket->setPrix(12);
-                            break;
-                        default:
-                            $ticket->setPrix(16);
-                            break;
-                    }
-
-                    if($ticket->getTarif() === TRUE){
-                            $ticket->setPrix(10);}
-
-                    if ($commande->getTypeTicket() === 'Demi journée') {
-                        $prix = $ticket->getPrix();
-                        $prixFinal = ($prix / 2);
-                        $ticket->setPrix($prixFinal);
-
-                    }
-                    $prixCommande += $ticket->getPrix();
-                    $ticket->setCommande($commande);
-                }
-
-                $commande->setPrixCommande($prixCommande);
+                $price = $this->get('app.price');
+                $commandePleine = $price->computePrice($commande);
 
                 $session = $request->getSession();
-                $session->set('commande', $commande);
+                $session->set('commande', $commandePleine);
 
 
-                return $this->render('prepare.html.twig', array('commande' => $commande));
+                return $this->render('prepare.html.twig', array('commande' => $commandePleine));
             }
 
             $this->addFlash("error","Il ne reste plus assez de places disponibles pour ce jour.");
@@ -111,10 +77,10 @@ class LouvreController extends Controller
 
     public function checkoutAction(Request $request)
     {
-        \Stripe\Stripe::setApiKey("sk_test_WPX5jeaspbkxlevLcL8Izm32");
+        \Stripe\Stripe::setApiKey($this->getParameter('skapikey'));
 
 
-        $token = $_POST['stripeToken'];
+        $token = $request->request->get('stripeToken');
 
         $session = $request->getSession();
         $commande = $session->get('commande');
