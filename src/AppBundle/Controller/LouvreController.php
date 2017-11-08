@@ -3,13 +3,11 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Commande;
-use AppBundle\Entity\Ticket;
 use AppBundle\Form\CommandeType;
 use AppBundle\Form\DebutCommandeType;
 use AppBundle\Form\SearchOrderType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM;
 
 class LouvreController extends Controller
 {
@@ -46,10 +44,9 @@ class LouvreController extends Controller
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $nbTicketSaved = count($this->getDoctrine()->getRepository(Ticket::class)->getTicketByDay($commande->getDateDeVisite()));
-            $nbTicketOrdered = count($commande->getTickets());
+            $nbTicketByDay = $this->get('app.limitPerDay')->limitPerDay($commande);
 
-            if (($nbTicketSaved + $nbTicketOrdered) < 1000) {
+            if ($nbTicketByDay === TRUE ) {
 
                 $price = $this->get('app.price');
                 $commandePleine = $price->computePrice($commande);
@@ -70,42 +67,21 @@ class LouvreController extends Controller
         return $this->render('ticket.html.twig', array('form' => $form->createView(), 'commande' => $commande));
     }
 
-    public function confirmationAction()
-    {
-        return $this->render('confirmation.html.twig');
-    }
-
     public function checkoutAction(Request $request)
     {
-        \Stripe\Stripe::setApiKey($this->getParameter('skapikey'));
-
-
-        $token = $request->request->get('stripeToken');
 
         $session = $request->getSession();
         $commande = $session->get('commande');
 
-        try {
-            $charge = \Stripe\Charge::create(array(
-                "amount" => $commande->getPrixCommande() * 100, // Amount in cents
-                "currency" => "eur",
-                "source" => $token,
-                "description" => "Paiement Stripe - Billeterie Louvre"
-            ));
-            $this->addFlash("success","Le paiement est un succès.");
+        $this->get('app.stripe')->chargeOrder($commande, $request);
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($commande);
-            $em->flush();
 
-            //envoie d'email de confirmation
-            return $this->redirectToRoute("louvre_confirmation");
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($commande);
+        $em->flush();
 
-        } catch(\Stripe\Error\Card $e) {
-
-            $this->addFlash("error","Le paiement a échoué, merci de recommencer.");
-            return $this->render('prepare.html.twig', array('commande' => $commande));
-        }
+        //envoie d'email de confirmation
+        return $this->render('confirmation.html.twig');
     }
 
     public function informationsAction()
@@ -120,19 +96,19 @@ class LouvreController extends Controller
 
     public function retrieveAction(Request $request)
     {
-        $commande = New Commande();
-        $form = $this->createForm(SearchOrderType::class, $commande);
+        $form = $this->createForm(SearchOrderType::class);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
         {
+            $data = $form->getData();
 
-            $commandesPassees = $this->getDoctrine()->getRepository(Commande::class)->findBy(array('email' => $commande->getEmail(), 'nom' => $commande->getNom(), 'prenom' => $commande->getPrenom()));
+            $commandesPassees = $this->getDoctrine()->getRepository(Commande::class)->findBy(array('email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
 
-            return $this->render('retrievedOrder.html.twig', array('commandesPassees' => $commandesPassees, 'commande' => $commande));
+            return $this->render('retrievedOrder.html.twig', array('commandesPassees' => $commandesPassees, 'email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
         }
 
-        return $this->render('retrieveOrder.html.twig', array('form' => $form->createView(), 'commande' => $commande));
+        return $this->render('retrieveOrder.html.twig', array('form' => $form->createView()));
     }
 
 }

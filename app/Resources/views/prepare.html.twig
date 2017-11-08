@@ -22,14 +22,8 @@
 
     </div>
     <!-- /.container -->
-</aside>
+</aside></br>
 
-</br>
-            {% for message in app.flashes('error') %}
-                <div class="alert alert-notice">
-                    {{ message }}
-                </div>
-            {% endfor %}
 <div class="container">
     <h1> Voici le récapitulatif de la commande</h1><hr>
     <h2>Commande au nom de :<span class="lead">  {{ commande.nom }} {{ commande.prenom }}</span></h2>
@@ -54,7 +48,7 @@
                 <form action="{{ path('louvre_checkout') }}" method="POST">
                     <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key="pk_test_sepPe6kxjEpKEnIp3qfQ9tDV"
+                            data-key="{{ pkapikey }}"
                             data-amount="{{ commande.prixCommande *100 }}"
                             data-name="Billeterie Louvre"
                             data-description="Widget"

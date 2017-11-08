@@ -27,7 +27,7 @@
     </br>
     <div class="container">
     {% if commandesPassees %}
-        <h2> Voici le récapitulatif des commandes passées par {{ commande.nom }} {{ commande.prenom }} </h2><hr>
+        <h2> Voici le récapitulatif des commandes passées par {{ nom }} {{ prenom }} </h2><hr>
 
         {% for commande in commandesPassees %}
 
@@ -40,16 +40,16 @@
                 <ul>
                     <li> Identité : Billet au nom de <span class="lead">{{ ticket.nomTicket }} {{ ticket.prenomTicket }}</span> </li>
                     <li> Type de Billet : <span class="lead"> {{ commande.typeTicket }}</span></li>
-                    <li> Tarif réduit : {% if ticket.tarif %} <span class="lead">oui (un justificatif vous sera demandé.</span> {% else %}<span class="lead">non</span> {% endif %}</li>
+                    <li> Tarif réduit : {% if ticket.tarif %} <span class="lead">oui (un justificatif vous sera demandé)</span> {% else %}<span class="lead">non</span> {% endif %}</li>
                     <li> Prix du Billet : <span class="lead">{{ ticket.prix }} €</span></li>
                 </ul><hr></br>
             {% endfor %}
         {% endfor %}
     {% else %}
         <h1> Il n'y a pas de commandes passées pour les critères suivants:</h1><hr></br>
-        <h3> Nom : {{ commande.nom }}</h3>
-        <h3> Prenom : {{ commande.prenom }}</h3>
-        <h3> Adresse Email : {{ commande.email }}</h3>
+        <h3> Nom : {{ nom }}</h3>
+        <h3> Prenom : {{ prenom }}</h3>
+        <h3> Adresse Email : {{ email }}</h3>
     {% endif %}
     </div>
 

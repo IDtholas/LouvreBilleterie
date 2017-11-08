@@ -17,8 +17,8 @@ class PastDaysValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint)
     {
        $currentDate = new \DateTime();
-       $currentDay = date('d/m', $currentDate->getTimeStamp());
-       $reservationDay = date('d/m', $value->getTimeStamp());
+       $currentDay = date('m/d', $currentDate->getTimeStamp());
+       $reservationDay = date('m/d', $value->getTimeStamp());
 
         if ($currentDay > $reservationDay)
         {$this->context->buildViolation($constraint->message)

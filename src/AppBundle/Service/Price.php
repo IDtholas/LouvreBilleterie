@@ -8,9 +8,6 @@
 
 namespace AppBundle\Service;
 
-use AppBundle\Entity\Commande;
-use AppBundle\Entity\Ticket;
-
 class Price
 {
     public function computePrice($commande)
