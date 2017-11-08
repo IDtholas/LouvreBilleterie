@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <aside class="banner">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 my-auto">
+                    <h2>Retrouvez votre commande</h2>
+                    <p> Merci de remplir le formulaire pour retrouver une commande passée.</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+    </aside>
+
+    </br>
+    <div class="container">
+        {{ form_start(form) }}
+        <h1> Récupération de commande : </h1>
+        {{ form_row(form.email) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.prenom) }}
+        <button type="submit" class="btn btn-secondary btn-lg">Retrouvez votre commande </button>
+        {{ form_end(form) }}
+
+    </div></br>
+{% endblock %}

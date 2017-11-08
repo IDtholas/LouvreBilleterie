@@ -14,10 +14,6 @@ louvre_confirmation:
     path:   /commande/confirmation
     defaults: { _controller: AppBundle:Louvre:confirmation}
 
-louvre_prepare:
-    path:   /commande/prepare
-    defaults: { _controller: AppBundle:Louvre:prepare}
-
 louvre_checkout:
     path:    /commande/checkout
     defaults: { _controller: AppBundle:Louvre:checkout}
@@ -29,3 +25,7 @@ louvre_informations:
 louvre_aide:
     path:    /aide
     defaults: { _controller: AppBundle:Louvre:aide}
+
+louvre_retrieve:
+    path:    /recuperationdecommande
+    defaults: { _controller: AppBundle:Louvre:retrieve}

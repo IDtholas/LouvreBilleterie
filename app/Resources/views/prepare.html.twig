@@ -31,16 +31,18 @@
                 </div>
             {% endfor %}
 <div class="container">
-    <h2> Voici le récapitulatif de la commande</h2><hr>
-    <h1>Commande au nom de :{{ commande.nom }} {{ commande.prenom }}</h1></br>
+    <h1> Voici le récapitulatif de la commande</h1><hr>
+    <h2>Commande au nom de :<span class="lead">  {{ commande.nom }} {{ commande.prenom }}</span></h2>
+    <p> Commande passée le : <span class="lead">{{ commande.dateDeCommande|date('d/m/y') }}</span></p>
+    <p> Visite prévue le : <span class="lead">{{ commande.dateDeVisite|date('d/m/y') }}</span></p>
 
             {% for ticket in commande.tickets %}
             <h3> Informations Billets:</h3>
             <ul>
-                <li> Identité : Billet au nom de {{ ticket.nomTicket }} {{ ticket.prenomTicket }} </li>
-                <li> Type de Billet :  {{ commande.typeTicket }}</li>
-                <li> Tarif réduit : {{ ticket.tarif }}</li>
-                <li> Prix du Billet : {{ ticket.prix }} €</li>
+                <li> Identité : Billet au nom de <span class="lead">{{ ticket.nomTicket }} {{ ticket.prenomTicket }}</span> </li>
+                <li> Type de Billet : <span class="lead"> {{ commande.typeTicket }}</span></li>
+                <li> Tarif réduit : {% if ticket.tarif %} <span class="lead">oui (un justificatif vous sera demandé.</span> {% else %}<span class="lead">non</span> {% endif %}</li>
+                <li> Prix du Billet : <span class="lead">{{ ticket.prix }} €</span></li>
             </ul>
             {% endfor %}
             </br><hr>

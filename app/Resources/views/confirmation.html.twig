@@ -19,15 +19,12 @@
     </br>
 
     <div class="container">
-
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success">
-                <h1>{{ message }}</h1>
-            </div>
-        {% endfor %}
         <div class="row">
-            <div> <h1 class="text-center">Merci d'avoir passé commande</h1>
-                <p> Un email de confirmation vient de vous être envoyé.</p>
+            <div> <h1>Votre commande est validée!</h1></br>
+                <p> Nous vous remercions de votre commande, soyez assuré qu'elle sera traitée dans les plus brefs
+                    délais.</br>
+                <p> Un email de confirmation vient de vous être envoyé. Il regroupe toutes les informations relatives
+                à votre commande.</p>
                 <a href="{{ path('louvre_accueil') }}" class="btn btn-secondary btn-lg">Retour à l'accueil</a>
             </div>
         </div></br>

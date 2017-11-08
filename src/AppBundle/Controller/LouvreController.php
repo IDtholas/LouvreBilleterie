@@ -6,6 +6,7 @@ use AppBundle\Entity\Commande;
 use AppBundle\Entity\Ticket;
 use AppBundle\Form\CommandeType;
 use AppBundle\Form\DebutCommandeType;
+use AppBundle\Form\SearchOrderType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM;
@@ -137,7 +138,7 @@ class LouvreController extends Controller
         } catch(\Stripe\Error\Card $e) {
 
             $this->addFlash("error","Le paiement a échoué, merci de recommencer.");
-            return $this->redirectToRoute("louvre_prepare");
+            return $this->render('prepare.html.twig', array('commande' => $commande));
         }
     }
 
@@ -149,6 +150,23 @@ class LouvreController extends Controller
     public function aideAction()
     {
         return $this->render('aide.html.twig');
+    }
+
+    public function retrieveAction(Request $request)
+    {
+        $commande = New Commande();
+        $form = $this->createForm(SearchOrderType::class, $commande);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+
+            $commandesPassees = $this->getDoctrine()->getRepository(Commande::class)->findBy(array('email' => $commande->getEmail(), 'nom' => $commande->getNom(), 'prenom' => $commande->getPrenom()));
+
+            return $this->render('retrievedOrder.html.twig', array('commandesPassees' => $commandesPassees, 'commande' => $commande));
+        }
+
+        return $this->render('retrieveOrder.html.twig', array('form' => $form->createView(), 'commande' => $commande));
     }
 
 }
