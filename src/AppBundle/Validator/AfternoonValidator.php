@@ -12,8 +12,16 @@ namespace AppBundle\Validator;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
+/**
+ * Class AfternoonValidator
+ * @package AppBundle\Validator
+ */
 class AfternoonValidator extends ConstraintValidator
 {
+    /**
+     * @param mixed $value
+     * @param Constraint $constraint
+     */
     public function validate($value, Constraint $constraint)
     {
         $currentDate = new \DateTime();
@@ -22,7 +30,7 @@ class AfternoonValidator extends ConstraintValidator
         $reservationDay = date('d/m', $value->getTimeStamp());
 
         $reservationHours = date('H', $value->getTimeStamp());
-        if ($currentDay === $reservationDay && $reservationHours < 14) {
+        if ($currentDay === $reservationDay && $reservationHours > 14) {
             $this->context->buildViolation($constraint->message)
                 ->addViolation();
         }

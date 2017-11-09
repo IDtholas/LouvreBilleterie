@@ -12,8 +12,16 @@ namespace AppBundle\Validator;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
+/**
+ * Class PastDaysValidator
+ * @package AppBundle\Validator
+ */
 class PastDaysValidator extends ConstraintValidator
 {
+    /**
+     * @param mixed $value
+     * @param Constraint $constraint
+     */
     public function validate($value, Constraint $constraint)
     {
        $currentDate = new \DateTime();

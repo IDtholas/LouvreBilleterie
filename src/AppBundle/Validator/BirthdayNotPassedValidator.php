@@ -12,8 +12,16 @@ namespace AppBundle\Validator;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
+/**
+ * Class BirthdayNotPassedValidator
+ * @package AppBundle\Validator
+ */
 class BirthdayNotPassedValidator extends ConstraintValidator
 {
+    /**
+     * @param mixed $value
+     * @param Constraint $constraint
+     */
     public function validate($value, Constraint $constraint)
     {
        $date = new \DateTime();

@@ -12,16 +12,33 @@ use AppBundle\Entity\Ticket;
 
 use Doctrine\ORM\EntityManager;
 
+// service checking the 1000 ticket limit per day
+
+/**
+ * Class LimitPerDay
+ * @package AppBundle\Service
+ */
 class LimitPerDay
 {
+    /**
+     * @var EntityManager
+     */
     protected $doctrine;
 
+    /**
+     * LimitPerDay constructor.
+     * @param EntityManager $doctrine
+     */
     public function __construct(EntityManager $doctrine)
     {
         $this->doctrine = $doctrine;
 
     }
 
+    /**
+     * @param $commande
+     * @return bool
+     */
     public function limitPerDay($commande)
     {
         $nbTicketSaved = count($this->doctrine->getRepository(Ticket::class)->getTicketByDay($commande->getDateDeVisite()));

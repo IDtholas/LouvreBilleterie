@@ -11,10 +11,20 @@ namespace AppBundle\Validator;
 
 use Symfony\Component\Validator\Constraint;
 
+/**
+ * Class Afternoon
+ * @package AppBundle\Validator
+ */
 class Afternoon extends Constraint
 {
-    public $message = "La date de visite ne peut être pour un jour antérieur, ou le même jour une fois 14h passé.";
+    /**
+     * @var string
+     */
+    public $message = "La date de visite ne peut être pour le même jour une fois 14h passé.";
 
+    /**
+     * @return string
+     */
     public function validatedBy()
     {
         return get_class($this).'Validator';

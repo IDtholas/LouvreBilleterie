@@ -11,11 +11,21 @@ namespace AppBundle\Validator;
 
 use Symfony\Component\Validator\Constraint;
 
+/**
+ * Class ClosedMuseum
+ * @package AppBundle\Validator
+ */
 class ClosedMuseum extends Constraint
 {
 
+    /**
+     * @var string
+     */
     public $message = "Le musée du Louvre est fermé le mardi, merci de choisir un autre jour.";
 
+    /**
+     * @return string
+     */
     public function validatedBy()
     {
         return get_class($this).'Validator';

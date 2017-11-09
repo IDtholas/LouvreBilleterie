@@ -1,6 +1,6 @@
-louvre_accueil:
+louvre_home:
     path:   /
-    defaults: { _controller: AppBundle:Louvre:accueil}
+    defaults: { _controller: AppBundle:Louvre:home}
 
 louvre_commande:
     path:   /commande
@@ -22,9 +22,9 @@ louvre_informations:
     path:    /informations
     defaults: { _controller: AppBundle:Louvre:informations}
 
-louvre_aide:
+louvre_help:
     path:    /aide
-    defaults: { _controller: AppBundle:Louvre:aide}
+    defaults: { _controller: AppBundle:Louvre:help}
 
 louvre_retrieve:
     path:    /recuperationdecommande

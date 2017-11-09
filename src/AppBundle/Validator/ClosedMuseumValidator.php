@@ -12,8 +12,16 @@ namespace AppBundle\Validator;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
+/**
+ * Class ClosedMuseumValidator
+ * @package AppBundle\Validator
+ */
 class ClosedMuseumValidator extends ConstraintValidator
 {
+    /**
+     * @param mixed $value
+     * @param Constraint $constraint
+     */
     public function validate($value, Constraint $constraint)
     {
         $closedDays = 'Tue';

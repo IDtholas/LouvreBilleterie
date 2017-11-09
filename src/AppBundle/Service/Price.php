@@ -8,8 +8,18 @@
 
 namespace AppBundle\Service;
 
+// service computing each ticket price form age, then the global order price
+
+/**
+ * Class Price
+ * @package AppBundle\Service
+ */
 class Price
 {
+    /**
+     * @param $commande
+     * @return mixed
+     */
     public function computePrice($commande)
     {
         $tickets = $commande->getTickets();

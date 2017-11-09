@@ -12,8 +12,16 @@ namespace AppBundle\Validator;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
+/**
+ * Class HolidayValidator
+ * @package AppBundle\Validator
+ */
 class HolidayValidator extends ConstraintValidator
 {
+    /**
+     * @param mixed $value
+     * @param Constraint $constraint
+     */
     public function validate($value, Constraint $constraint)
     {
         $holidayDay = ['01/05', '01/11', '25/12'];
