@@ -71,6 +71,12 @@ class DebutCommandeType extends AbstractType
                     new Holiday(),
                 ],
                 'widget' => 'single_text',
+                'format' => 'dd-MM-yyyy',
+                'html5' => false,
+                'label' => 'Date de visite :',
+                'attr' => [
+                    'class' => 'datepicker_js',
+                ],
             ])
             ->add('typeTicket', ChoiceType::class, array(
                 'choices' => array(

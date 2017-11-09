@@ -114,6 +114,7 @@ class LouvreController extends Controller
 
 
         // persist and flush order in DB
+        $commande->setResa(uniqid());
         $em = $this->getDoctrine()->getManager();
         $em->persist($commande);
         $em->flush();

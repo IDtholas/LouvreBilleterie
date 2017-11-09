@@ -30,9 +30,10 @@
         {{ form_errors(form.email) }}
         {{ form_label(form.email) }}
         {{ form_widget(form.email) }}
-        {{ form_errors(form.dateDeVisite) }}
         {{ form_label(form.dateDeVisite) }}
         {{ form_widget(form.dateDeVisite) }}
+        <p class="help-text lead">Format demandé : 01-01-2018</p>
+        {{ form_errors(form.dateDeVisite) }}
         {{ form_errors(form.typeTicket) }}
         {{ form_label(form.typeTicket) }}
         {{ form_widget(form.typeTicket) }}

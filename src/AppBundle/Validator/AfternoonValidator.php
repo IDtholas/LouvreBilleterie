@@ -29,8 +29,8 @@ class AfternoonValidator extends ConstraintValidator
 
         $reservationDay = date('d/m', $value->getTimeStamp());
 
-        $reservationHours = date('H', $value->getTimeStamp());
-        if ($currentDay === $reservationDay && $reservationHours > 14) {
+        $reservationHours = date("H", $currentDate->getTimestamp());
+        if ($currentDay === $reservationDay && $reservationHours > 13) {
             $this->context->buildViolation($constraint->message)
                 ->addViolation();
         }

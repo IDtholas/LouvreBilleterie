@@ -24,6 +24,13 @@ class Commande
     /**
      * @var string
      *
+     * @ORM\Column(name="resa", type="string", length=255)
+     */
+    private $resa;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
@@ -83,6 +90,30 @@ class Commande
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set resa
+     *
+     * @param string $resa
+     *
+     * @return Commande
+     */
+    public function setResa($resa)
+    {
+        $this->resa = $resa;
+
+        return $this;
+    }
+
+    /**
+     * Get resa
+     *
+     * @return string
+     */
+    public function getResa()
+    {
+        return $this->resa;
     }
 
     /**

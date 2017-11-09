@@ -66,6 +66,12 @@ class TicketType extends AbstractType
                 ],
                 'label' => 'Date de naissance :',
                 'widget' => 'single_text',
+                'format' => 'dd-MM-yyyy',
+                'html5' => false,
+                'label' => 'Date de naissance :',
+                'attr' => [
+                    'class' => 'datepicker_birth',
+                ],
             ]);
     }
 
