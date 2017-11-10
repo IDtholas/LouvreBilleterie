@@ -35,7 +35,7 @@
             <ul>
                 <li> Identité : Billet au nom de <span class="lead">{{ ticket.nomTicket }} {{ ticket.prenomTicket }}</span> </li>
                 <li> Type de Billet : <span class="lead"> {{ commande.typeTicket }}</span></li>
-                <li> Tarif réduit : {% if ticket.tarif %} <span class="lead">oui (un justificatif vous sera demandé.</span> {% else %}<span class="lead">non</span> {% endif %}</li>
+                <li> Tarif réduit : {% if ticket.tarif %} <span class="lead">oui (un justificatif vous sera demandé.)</span> {% else %}<span class="lead">non</span> {% endif %}</li>
                 <li> Prix du Billet : <span class="lead">{{ ticket.prix }} €</span></li>
             </ul>
             {% endfor %}

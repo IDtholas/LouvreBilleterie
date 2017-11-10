@@ -113,13 +113,29 @@ class LouvreController extends Controller
         $this->get('app.stripe')->chargeOrder($commande, $request);
 
 
-        // persist and flush order in DB
+        // uniqID set for reservation, persist and flush order in DB
         $commande->setResa(uniqid());
         $em = $this->getDoctrine()->getManager();
         $em->persist($commande);
         $em->flush();
 
-        //envoie d'email de confirmation
+        //send confirmation mail with reservation code
+
+        $message = (new \Swift_Message('Mail de confirmation de Commande'))
+            ->setFrom('webmaster@billetterie.com')
+            ->setTo($commande->getEmail())
+            ->setBody(
+                $this->renderView(
+                // app/Resources/views/Emails/registration.html.twig
+                    'emailConfirmation.html.twig',
+                    array('commande' => $commande)
+                ),
+                'text/html'
+            );
+
+        $mailer = $this->get('mailer');
+        $mailer->send($message);
+
         return $this->render('confirmation.html.twig');
     }
 

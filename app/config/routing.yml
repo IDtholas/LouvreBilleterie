@@ -1,31 +1,39 @@
 louvre_home:
     path:   /
     defaults: { _controller: AppBundle:Louvre:home}
+    schemes:  [https]
 
 louvre_commande:
     path:   /commande
     defaults: { _controller: AppBundle:Louvre:commande}
+    schemes:  [https]
 
 louvre_ticket:
     path:   /commande/ticket
     defaults: { _controller: AppBundle:Louvre:ticket}
+    schemes:  [https]
 
 louvre_confirmation:
     path:   /commande/confirmation
     defaults: { _controller: AppBundle:Louvre:confirmation}
+    schemes:  [https]
 
 louvre_checkout:
     path:    /commande/checkout
     defaults: { _controller: AppBundle:Louvre:checkout}
+    schemes:  [https]
 
 louvre_informations:
     path:    /informations
     defaults: { _controller: AppBundle:Louvre:informations}
+    schemes:  [https]
 
 louvre_help:
     path:    /aide
     defaults: { _controller: AppBundle:Louvre:help}
+    schemes:  [https]
 
 louvre_retrieve:
     path:    /recuperationdecommande
     defaults: { _controller: AppBundle:Louvre:retrieve}
+    schemes:  [https]

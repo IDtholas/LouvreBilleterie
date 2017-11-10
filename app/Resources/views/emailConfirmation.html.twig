@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <style>
+        p
+        {
+            color: black;
+        }
+        h4
+        {
+            color: black;
+        }
+        h1
+        {
+            color: black;
+        }
+        li
+        {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+        <img  src="https://www.amisdulouvre.fr/images/actualite/logo-louvre.jpg" alt="image louvre">
+        <h1>Mail de confirmation</h1>
+        <p> Nous vous remercions de votre commande.</p>
+        <p> Cet email regroupe les informations relatives à votre commande, et fournit le code réservation  à présenter lors de la visite.</p>
+
+        <h4>Commande au nom de : {{ commande.nom }} {{ commande.prenom }} passée le :{{ commande.dateDeCommande|date('d/m/y') }}.</h4>
+        <p> Visite prévue le : {{ commande.dateDeVisite|date('d/m/y') }}</p>
+        <p> Prix de la commande : {{ commande.prixCommande }} €</p>
+
+        <h3> Code de réservation :{{ commande.resa }} </h3>
+
+        {% for ticket in commande.tickets %}
+            <h4> Informations Billets:</h4>
+            <ul>
+                <li> Identité : Billet au nom de {{ ticket.nomTicket }} {{ ticket.prenomTicket }} </li>
+                <li> Type de Billet :{{ commande.typeTicket }}</li>
+                <li> Tarif réduit : {% if ticket.tarif %} oui (un justificatif vous sera demandé) {% else %}non {% endif %}</li>
+                <li> Prix du Billet : {{ ticket.prix }} €</li>
+            </ul>
+        {% endfor %}
+</body>
+</html>
