@@ -45,7 +45,7 @@ class LimitPerDay
 
         $nbTicketByDay = $nbTicketSaved + $nbTicketOrdered;
 
-        if($nbTicketByDay < 1000)
+        if($nbTicketByDay < 5)
             {return TRUE;}
         else
             {return FALSE;}

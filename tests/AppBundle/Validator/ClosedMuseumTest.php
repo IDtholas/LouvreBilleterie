@@ -6,7 +6,7 @@
  * Time: 23:10
  */
 
-namespace Tests\AppBundle\Validator;
+namespace tests\AppBundle\Validator;
 
 use AppBundle\Validator\ClosedMuseum;
 use AppBundle\Validator\ClosedMuseumValidator;

@@ -6,7 +6,7 @@
  * Time: 19:52
  */
 
-namespace Tests\AppBundle\Service;
+namespace tests\AppBundle\Service;
 
 use AppBundle\Entity\Commande;
 use AppBundle\Entity\Ticket;
