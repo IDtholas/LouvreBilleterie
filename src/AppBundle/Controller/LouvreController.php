@@ -180,12 +180,24 @@ class LouvreController extends Controller
         {
             $data = $form->getData();
 
-            $commandesPassees = $this->getDoctrine()->getRepository(Commande::class)->findBy(array('email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
+            $session = $request->getSession();
+            $session->set('searchdata', $data);
 
-            return $this->render('retrievedOrder.html.twig', array('commandesPassees' => $commandesPassees, 'email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
+            return $this->redirectToRoute('louvre_retrieved');
         }
 
         return $this->render('retrieveOrder.html.twig', array('form' => $form->createView()));
+    }
+
+    public function retrievedAction(Request $request)
+    {
+        $session = $request->getSession();
+        $data = $session->get('searchdata');
+
+        $commandesPassees = $this->getDoctrine()->getRepository(Commande::class)->findBy(array('email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
+
+
+        return $this->render('retrievedOrder.html.twig', array('commandesPassees' => $commandesPassees, 'email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
     }
 
 }

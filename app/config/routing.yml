@@ -43,4 +43,10 @@ louvre_prepare:
     defaults: { _controller: AppBundle:Louvre:prepare}
     methods:  [GET]
 
+louvre_retrieved:
+    path:   /commanderecuperee
+    defaults: { _controller: AppBundle:Louvre:retrieved}
+    methods:  [GET]
+
+
 
