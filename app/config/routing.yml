@@ -10,10 +10,6 @@ louvre_ticket:
     path:   /commande/ticket
     defaults: { _controller: AppBundle:Louvre:ticket}
 
-louvre_confirmation:
-    path:   /commande/confirmation
-    defaults: { _controller: AppBundle:Louvre:confirmation}
-
 louvre_checkout:
     path:    /commande/checkout
     defaults: { _controller: AppBundle:Louvre:checkout}
