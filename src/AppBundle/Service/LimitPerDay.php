@@ -12,7 +12,6 @@ use AppBundle\Entity\Ticket;
 
 use Doctrine\ORM\EntityManager;
 
-// service checking the 1000 ticket limit per day
 
 /**
  * Class LimitPerDay

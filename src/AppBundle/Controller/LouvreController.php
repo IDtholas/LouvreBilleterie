@@ -87,11 +87,9 @@ class LouvreController extends Controller
 
         }
 
-        //if form is not submitted, render an empty one
         return $this->render('ticket.html.twig', array('form' => $form->createView(), 'commande' => $commande));
     }
 
-    //get full order in session, charge for it, persist and flush it, then send the confirmation mail and render the confirmation view
 
     /**
      * @param Request $request
@@ -103,28 +101,23 @@ class LouvreController extends Controller
 
         if (isset($token)) {
 
-            // get full order in session
             $session = $request->getSession();
             $commande = $session->get('commande');
 
-            //service to charge the card for the order
             $this->get('app.stripe')->chargeOrder($commande, $token);
 
 
-            // uniqID set for reservation, persist and flush order in DB
             $commande->setResa(uniqid());
             $em = $this->getDoctrine()->getManager();
             $em->persist($commande);
             $em->flush();
 
-            //send confirmation mail with reservation code
 
             $message = (new \Swift_Message('Mail de confirmation de Commande'))
                 ->setFrom('webmaster@billetterie.com')
                 ->setTo($commande->getEmail())
                 ->setBody(
                     $this->renderView(
-                    // app/Resources/views/Emails/registration.html.twig
                         'emailConfirmation.html.twig',
                         array('commande' => $commande)
                     ),
@@ -142,7 +135,6 @@ class LouvreController extends Controller
         }
     }
 
-    // render the informations view
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
@@ -152,7 +144,6 @@ class LouvreController extends Controller
         return $this->render('informations.html.twig');
     }
 
-    //render the help view
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
@@ -162,7 +153,6 @@ class LouvreController extends Controller
         return $this->render('help.html.twig');
     }
 
-    // render a search form, and when submitted and valid, display the DB results
 
     /**
      * @param Request $request
@@ -173,7 +163,6 @@ class LouvreController extends Controller
         $form = $this->createForm(SearchOrderType::class);
         $form->handleRequest($request);
 
-        // if form submitted and valid, get its data, get the matching results in DB, the render them in view
         if($form->isSubmitted() && $form->isValid())
         {
             $data = $form->getData();
@@ -183,7 +172,6 @@ class LouvreController extends Controller
             return $this->render('retrievedOrder.html.twig', array('commandesPassees' => $commandesPassees, 'email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
         }
 
-        // if form isnt submitted, render an empty one
         return $this->render('retrieveOrder.html.twig', array('form' => $form->createView()));
     }
 

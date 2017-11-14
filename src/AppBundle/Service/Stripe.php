@@ -12,8 +12,6 @@ use Stripe\Charge;
 use Stripe\Error\Card;
 use Symfony\Component\HttpFoundation\Request;
 
-//service charging the card form the user
-
 /**
  * Class Stripe
  * @package AppBundle\Service

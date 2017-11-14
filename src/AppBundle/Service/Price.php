@@ -8,7 +8,6 @@
 
 namespace AppBundle\Service;
 
-// service computing each ticket price form age, then the global order price
 
 /**
  * Class Price
