@@ -127,7 +127,7 @@ class LouvreController extends Controller
             $mailer = $this->get('mailer');
             $mailer->send($message);
 
-            return $this->render('confirmation.html.twig');
+            return $this->redirectToRoute('louvre_confirmation');
         }
 
         else{
@@ -135,6 +135,11 @@ class LouvreController extends Controller
         }
     }
 
+
+    public function confirmationAction()
+    {
+        return $this->render('confirmation.html.twig');
+    }
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response

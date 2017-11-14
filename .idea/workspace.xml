@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23c1c6c1-2c7e-4f55-a02b-2af7e56cd1b0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/.htaccess" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/commande.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/commande.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/confirmation.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/confirmation.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/error.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/error.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/prepare.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/prepare.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/retrieveOrder.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/retrieveOrder.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/retrievedOrder.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/retrievedOrder.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/ticket.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/ticket.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/Type/CommandeType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/Type/CommandeType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/Type/DebutCommandeType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/Type/DebutCommandeType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/Type/SearchOrderType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/Type/SearchOrderType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/Type/TicketType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/Type/TicketType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Service/LimitPerDay.php" afterPath="$PROJECT_DIR$/src/AppBundle/Service/LimitPerDay.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Service/Price.php" afterPath="$PROJECT_DIR$/src/AppBundle/Service/Price.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Service/Stripe.php" afterPath="$PROJECT_DIR$/src/AppBundle/Service/Stripe.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Validator/Afternoon.php" afterPath="$PROJECT_DIR$/src/AppBundle/Validator/Afternoon.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Validator/AfternoonValidator.php" afterPath="$PROJECT_DIR$/src/AppBundle/Validator/AfternoonValidator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Validator/BirthdayNotPassed.php" afterPath="$PROJECT_DIR$/src/AppBundle/Validator/BirthdayNotPassed.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Validator/BirthdayNotPassedValidator.php" afterPath="$PROJECT_DIR$/src/AppBundle/Validator/BirthdayNotPassedValidator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Validator/ClosedMuseum.php" afterPath="$PROJECT_DIR$/src/AppBundle/Validator/ClosedMuseum.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Validator/ClosedMuseumValidator.php" afterPath="$PROJECT_DIR$/src/AppBundle/Validator/ClosedMuseumValidator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Validator/Holiday.php" afterPath="$PROJECT_DIR$/src/AppBundle/Validator/Holiday.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Validator/HolidayValidator.php" afterPath="$PROJECT_DIR$/src/AppBundle/Validator/HolidayValidator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Validator/PastDays.php" afterPath="$PROJECT_DIR$/src/AppBundle/Validator/PastDays.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Validator/PastDaysValidator.php" afterPath="$PROJECT_DIR$/src/AppBundle/Validator/PastDaysValidator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/LouvreController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/LouvreController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,7 +19,7 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/BirthdayNotPassedValidator.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
-              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -56,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/ClosedMuseum.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
-              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/ClosedMuseumValidator.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/Holiday.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/HolidayValidator.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="544">
-              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -96,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/PastDays.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="476">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/PastDaysValidator.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -115,8 +88,8 @@
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+            <state relative-caret-position="646">
+              <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -125,19 +98,24 @@
       <file leaf-file-name="LouvreController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/LouvreController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="125" column="0" lean-forward="true" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+            <state relative-caret-position="646">
+              <caret line="135" column="5" lean-forward="true" selection-start-line="135" selection-start-column="5" selection-end-line="135" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BirthdayNotPassed.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/BirthdayNotPassed.php">
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="170">
+              <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+              <folding>
+                <marker date="1510694961626" expanded="true" signature="44501:44543" ph="..." />
+                <marker date="1510694961626" expanded="true" signature="44501:44561" ph="..." />
+                <marker date="1510694961626" expanded="true" signature="44501:44574" ph="..." />
+                <marker date="1510694961626" expanded="true" signature="44501:44589" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -171,7 +149,6 @@
         <option value="$PROJECT_DIR$/tests/AppBundle/Validator/PastDaysTest.php" />
         <option value="$PROJECT_DIR$/web/bootstrap/js/bootstrap.js" />
         <option value="$PROJECT_DIR$/web/js/jquery.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/LouvreController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/CommandeType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/DebutCommandeType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/SearchOrderType.php" />
@@ -181,7 +158,6 @@
         <option value="$PROJECT_DIR$/app/config/config_prod.yml" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/commande.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/confirmation.html.twig" />
@@ -192,7 +168,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/ticket.html.twig" />
         <option value="$PROJECT_DIR$/.idea/modules.xml" />
         <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/Type/CommandeType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/Type/DebutCommandeType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/Type/SearchOrderType.php" />
@@ -210,6 +185,9 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Validator/HolidayValidator.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Validator/PastDays.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Validator/PastDaysValidator.php" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/LouvreController.php" />
+        <option value="$PROJECT_DIR$/app/config/routing.yml" />
       </list>
     </option>
   </component>
@@ -260,6 +238,19 @@
               <item name="pX" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="pX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pX" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="pX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pX" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="pX" type="b2602c69:ProjectViewProjectNode" />
@@ -335,12 +326,12 @@
       <workItem from="1510570771029" duration="956000" />
       <workItem from="1510572942936" duration="27450000" />
       <workItem from="1510654864299" duration="11726000" />
-      <workItem from="1510685383304" duration="7126000" />
+      <workItem from="1510685383304" duration="9559000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156987000" />
+    <option name="totallyTimeSpent" value="159420000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -620,19 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-          <folding>
-            <marker date="1510692521165" expanded="true" signature="47747:47764" ph="..." />
-            <marker date="1510692521165" expanded="true" signature="47747:47782" ph="..." />
-            <marker date="1510692521165" expanded="true" signature="47747:47795" ph="..." />
-            <marker date="1510692521165" expanded="true" signature="47747:47810" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/Type/CommandeType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -726,7 +704,7 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/BirthdayNotPassedValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -734,7 +712,7 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/ClosedMuseum.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -742,7 +720,7 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/ClosedMuseumValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -750,7 +728,7 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/Holiday.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -758,7 +736,7 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/HolidayValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -766,7 +744,7 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/PastDays.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -774,23 +752,36 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/PastDaysValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+          <folding>
+            <marker date="1510694961626" expanded="true" signature="44501:44543" ph="..." />
+            <marker date="1510694961626" expanded="true" signature="44501:44561" ph="..." />
+            <marker date="1510694961626" expanded="true" signature="44501:44574" ph="..." />
+            <marker date="1510694961626" expanded="true" signature="44501:44589" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        <state relative-caret-position="646">
+          <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/LouvreController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="125" column="0" lean-forward="true" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+        <state relative-caret-position="646">
+          <caret line="135" column="5" lean-forward="true" selection-start-line="135" selection-start-column="5" selection-end-line="135" selection-end-column="5" />
           <folding />
         </state>
       </provider>
