@@ -1,27 +1,34 @@
 louvre_home:
     path:   /
     defaults: { _controller: AppBundle:Louvre:home}
+    methods:  [GET]
 
 louvre_commande:
     path:   /commande
     defaults: { _controller: AppBundle:Louvre:commande}
+    methods:  [GET, POST]
 
 louvre_ticket:
     path:   /commande/ticket
     defaults: { _controller: AppBundle:Louvre:ticket}
+    methods:  [GET, POST]
 
 louvre_checkout:
     path:    /commande/checkout
     defaults: { _controller: AppBundle:Louvre:checkout}
+    methods:  [GET, POST]
 
 louvre_informations:
     path:    /informations
     defaults: { _controller: AppBundle:Louvre:informations}
+    methods:  [GET]
 
 louvre_help:
     path:    /aide
     defaults: { _controller: AppBundle:Louvre:help}
+    methods:  [GET]
 
 louvre_retrieve:
     path:    /recuperationdecommande
     defaults: { _controller: AppBundle:Louvre:retrieve}
+    methods:  [GET, POST]
