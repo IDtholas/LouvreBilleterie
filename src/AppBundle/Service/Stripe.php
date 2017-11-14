@@ -8,6 +8,7 @@
 
 namespace AppBundle\Service;
 
+use AppBundle\Entity\Commande;
 use Stripe\Charge;
 use Stripe\Error\Card;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,7 +37,7 @@ class Stripe
      * @param $commande
      * @param Request $request
      */
-    public function chargeOrder($commande, $token)
+    public function chargeOrder(Commande $commande, $token)
     {
         \Stripe\Stripe::setApiKey($this->skapikey);
         try {

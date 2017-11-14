@@ -8,6 +8,7 @@
 
 namespace AppBundle\Service;
 
+use AppBundle\Entity\Commande;
 use AppBundle\Entity\Ticket;
 
 use Doctrine\ORM\EntityManager;
@@ -38,7 +39,7 @@ class LimitPerDay
      * @param $commande
      * @return bool
      */
-    public function limitPerDay($commande)
+    public function limitPerDay(Commande $commande)
     {
         $nbTicketSaved = count($this->doctrine->getRepository(Ticket::class)->getTicketByDay($commande->getDateDeVisite()));
         $nbTicketOrdered = count($commande->getTickets());

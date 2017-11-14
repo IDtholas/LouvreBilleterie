@@ -1,28 +1,27 @@
 <?php
+namespace AppBundle\Form\Type;
 
-
-namespace AppBundle\Form;
-
-use AppBundle\Validator\BirthdayNotPassed;
+use AppBundle\Validator\Afternoon;
+use AppBundle\Validator\ClosedMuseum;
+use AppBundle\Validator\Holiday;
+use AppBundle\Validator\PastDays;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
-use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Type;
+use Symfony\Component\Validator\Constraints;
 
 /**
- * Class TicketType
- * @package AppBundle\Form
+ * Class DebutCommandeType
+ * @package AppBundle\Form\Type
  */
-class TicketType extends AbstractType
+class DebutCommandeType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -30,7 +29,7 @@ class TicketType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomTicket', TextType::class, [
+        $builder->add('nom', TextType::class, [
             'constraints' => [
                 new NotBlank(),
                 new Type('string'),
@@ -39,9 +38,8 @@ class TicketType extends AbstractType
                     'max' => 50,
                     'minMessage' => "Le nom doit contenir au moins 2 caractères.",
                     'maxMessage' => "Le nom ne peux contenir plus de 50 caractères."
-                ])],
-            'label' => 'Nom :',])
-            ->add('prenomTicket', TextType::class, [
+                ])]])
+            ->add('prenom', TextType::class, [
                 'constraints' => [
                     new NotBlank(),
                     new Type('string'),
@@ -50,35 +48,34 @@ class TicketType extends AbstractType
                         'max' => 50,
                         'minMessage' => "Le prénom doit contenir au moins 2 caractères.",
                         'maxMessage' => "Le prénom ne peux contenir plus de 50 caractères."
-                    ])],
-                'label' => 'Prénom :',])
-            ->add('pays', CountryType::class, [
-                'label' => 'Pays :',
-            ])
-            ->add('tarif', ChoiceType::class, array(
-                'label' => 'Tarif réduit :',
-                'choices' => array('oui' => TRUE, 'non' => FALSE)
-            ))
-            ->add('dateDeNaissance', DateType::class,[
+                    ])]])
+            ->add('email', EmailType::class, [
                 'constraints' => [
                     new NotBlank(),
-                    new BirthdayNotPassed(),
+                    new Constraints\Email()
                 ],
-                'label' => 'Date de naissance :',
+            ])
+            ->add('dateDeVisite', DateType::class,[
+                'constraints' => [
+                    new NotBlank(),
+                    new ClosedMuseum(),
+                    new Afternoon(),
+                    new PastDays(),
+                    new Holiday(),
+                ],
                 'widget' => 'single_text',
                 'format' => 'dd-MM-yyyy',
                 'html5' => false,
-                'label' => 'Date de naissance :',
+                'label' => 'Date de visite :',
                 'attr' => [
-                    'class' => 'datepicker_birth',
+                    'class' => 'datepicker_js',
                 ],
-            ]);
-    }
-
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Ticket'
-        ));
+            ])
+            ->add('typeTicket', ChoiceType::class, array(
+                'choices' => array(
+                    'Journée entière' => "Journée Entière",
+                    'Demi journée' => "Demi journée"
+                )))
+        ;
     }
 }

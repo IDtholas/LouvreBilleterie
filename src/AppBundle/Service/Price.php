@@ -8,6 +8,8 @@
 
 namespace AppBundle\Service;
 
+use AppBundle\Entity\Commande;
+
 
 /**
  * Class Price
@@ -19,7 +21,7 @@ class Price
      * @param $commande
      * @return mixed
      */
-    public function computePrice($commande)
+    public function computePrice(Commande $commande)
     {
         $tickets = $commande->getTickets();
         $prixCommande = 0;

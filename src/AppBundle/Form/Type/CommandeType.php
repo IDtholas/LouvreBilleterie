@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
 
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\AbstractType;
@@ -15,7 +15,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Class CommandeType
- * @package AppBundle\Form
+ * @package AppBundle\Form\Type
  */
 class CommandeType extends AbstractType
 {

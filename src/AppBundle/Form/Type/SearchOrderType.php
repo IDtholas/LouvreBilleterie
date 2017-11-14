@@ -6,7 +6,7 @@
  * Time: 10:33
  */
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
 
 
 use Symfony\Component\Form\AbstractType;
@@ -16,7 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Class SearchOrderType
- * @package AppBundle\Form
+ * @package AppBundle\Form\Type
  */
 class SearchOrderType extends AbstractType
 {

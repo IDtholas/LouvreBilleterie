@@ -3,9 +3,9 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Commande;
-use AppBundle\Form\CommandeType;
-use AppBundle\Form\DebutCommandeType;
-use AppBundle\Form\SearchOrderType;
+use AppBundle\Form\Type\CommandeType;
+use AppBundle\Form\Type\DebutCommandeType;
+use AppBundle\Form\Type\SearchOrderType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 

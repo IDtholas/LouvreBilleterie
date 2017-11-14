@@ -1,34 +1,28 @@
 <?php
-namespace AppBundle\Form;
 
-use AppBundle\Validator\Afternoon;
-use AppBundle\Validator\AfternoonAndPastDays;
-use AppBundle\Validator\ClosedMuseum;
-use AppBundle\Validator\Holiday;
-use AppBundle\Validator\PastDay;
-use AppBundle\Validator\PastDays;
-use Doctrine\Common\Collections\Collection;
+
+namespace AppBundle\Form\Type;
+
+use AppBundle\Validator\BirthdayNotPassed;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Type;
-use Symfony\Component\Validator\Constraints;
 
 /**
- * Class DebutCommandeType
- * @package AppBundle\Form
+ * Class TicketType
+ * @package AppBundle\Form\Type
  */
-class DebutCommandeType extends AbstractType
+class TicketType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -36,7 +30,7 @@ class DebutCommandeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom', TextType::class, [
+        $builder->add('nomTicket', TextType::class, [
             'constraints' => [
                 new NotBlank(),
                 new Type('string'),
@@ -45,8 +39,9 @@ class DebutCommandeType extends AbstractType
                     'max' => 50,
                     'minMessage' => "Le nom doit contenir au moins 2 caractères.",
                     'maxMessage' => "Le nom ne peux contenir plus de 50 caractères."
-                ])]])
-            ->add('prenom', TextType::class, [
+                ])],
+            'label' => 'Nom :',])
+            ->add('prenomTicket', TextType::class, [
                 'constraints' => [
                     new NotBlank(),
                     new Type('string'),
@@ -55,34 +50,35 @@ class DebutCommandeType extends AbstractType
                         'max' => 50,
                         'minMessage' => "Le prénom doit contenir au moins 2 caractères.",
                         'maxMessage' => "Le prénom ne peux contenir plus de 50 caractères."
-                    ])]])
-            ->add('email', EmailType::class, [
-                'constraints' => [
-                    new NotBlank(),
-                    new Constraints\Email()
-                ],
+                    ])],
+                'label' => 'Prénom :',])
+            ->add('pays', CountryType::class, [
+                'label' => 'Pays :',
             ])
-            ->add('dateDeVisite', DateType::class,[
+            ->add('tarif', ChoiceType::class, array(
+                'label' => 'Tarif réduit :',
+                'choices' => array('oui' => TRUE, 'non' => FALSE)
+            ))
+            ->add('dateDeNaissance', DateType::class,[
                 'constraints' => [
                     new NotBlank(),
-                    new ClosedMuseum(),
-                    new Afternoon(),
-                    new PastDays(),
-                    new Holiday(),
+                    new BirthdayNotPassed(),
                 ],
+                'label' => 'Date de naissance :',
                 'widget' => 'single_text',
                 'format' => 'dd-MM-yyyy',
                 'html5' => false,
-                'label' => 'Date de visite :',
+                'label' => 'Date de naissance :',
                 'attr' => [
-                    'class' => 'datepicker_js',
+                    'class' => 'datepicker_birth',
                 ],
-            ])
-            ->add('typeTicket', ChoiceType::class, array(
-                'choices' => array(
-                    'Journée entière' => "Journée Entière",
-                    'Demi journée' => "Demi journée"
-                )))
-        ;
+            ]);
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\Ticket'
+        ));
     }
 }
