@@ -25,9 +25,9 @@ class AfternoonValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint)
     {
         $currentDate = new \DateTime();
-        $currentDay = date('d/m', $currentDate->getTimeStamp());
+        $currentDay = date('d/m/y', $currentDate->getTimeStamp());
 
-        $reservationDay = date('d/m', $value->getTimeStamp());
+        $reservationDay = date('d/m/y', $value->getTimeStamp());
 
         $reservationHours = date("H", $currentDate->getTimestamp());
         if ($currentDay === $reservationDay && $reservationHours > 13) {

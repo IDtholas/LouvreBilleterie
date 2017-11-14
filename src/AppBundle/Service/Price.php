@@ -44,7 +44,7 @@ class Price
                     break;
             }
 
-            if($ticket->getTarif() === TRUE){
+            if($ticket->getTarif()){
                 $ticket->setPrix(10);}
 
             if ($commande->getTypeTicket() === 'Demi journée') {

@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 class LouvreController extends Controller
 {
 
-    //render the home page
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -25,7 +24,6 @@ class LouvreController extends Controller
         return $this->render('home.html.twig');
     }
 
-    //render the order form, and when submitted and valid, redirect to the ticket form
 
     /**
      * @param Request $request
@@ -35,11 +33,10 @@ class LouvreController extends Controller
     {
         $commandeInSession = new Commande();
 
-        //order form created
+
         $form = $this->createForm(DebutCommandeType::class, $commandeInSession);
         $form->handleRequest($request);
 
-        //if form submitted and valid, pass order in session then redirect to the ticket form
         if ($form->isSubmitted() && $form->isValid()) {
             $session = $request->getSession();
             $session->set('commande', $commandeInSession);
@@ -48,11 +45,9 @@ class LouvreController extends Controller
             return $this->redirectToRoute('louvre_ticket');
         }
 
-        //if form not submitted, render an empty one
         return $this->render('commande.html.twig', array('form' => $form->createView()));
     }
 
-    //render the ticket form, and when submitted and valid, render the prepare view
 
     /**
      * @param Request $request
@@ -73,7 +68,7 @@ class LouvreController extends Controller
 
             $nbTicketByDay = $this->get('app.limitPerDay')->limitPerDay($commande);
 
-            if ($nbTicketByDay === TRUE ) {
+            if ($nbTicketByDay) {
 
                 $price = $this->get('app.price');
                 $commandePleine = $price->computePrice($commande);
@@ -104,39 +99,47 @@ class LouvreController extends Controller
      */
     public function checkoutAction(Request $request)
     {
+        $token = $request->request->get('stripeToken');
 
-        // get full order in session
-        $session = $request->getSession();
-        $commande = $session->get('commande');
+        if (isset($token)) {
 
-        //service to charge the card for the order
-        $this->get('app.stripe')->chargeOrder($commande, $request);
+            // get full order in session
+            $session = $request->getSession();
+            $commande = $session->get('commande');
+
+            //service to charge the card for the order
+            $this->get('app.stripe')->chargeOrder($commande, $token);
 
 
-        // uniqID set for reservation, persist and flush order in DB
-        $commande->setResa(uniqid());
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($commande);
-        $em->flush();
+            // uniqID set for reservation, persist and flush order in DB
+            $commande->setResa(uniqid());
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($commande);
+            $em->flush();
 
-        //send confirmation mail with reservation code
+            //send confirmation mail with reservation code
 
-        $message = (new \Swift_Message('Mail de confirmation de Commande'))
-            ->setFrom('webmaster@billetterie.com')
-            ->setTo($commande->getEmail())
-            ->setBody(
-                $this->renderView(
-                // app/Resources/views/Emails/registration.html.twig
-                    'emailConfirmation.html.twig',
-                    array('commande' => $commande)
-                ),
-                'text/html'
-            );
+            $message = (new \Swift_Message('Mail de confirmation de Commande'))
+                ->setFrom('webmaster@billetterie.com')
+                ->setTo($commande->getEmail())
+                ->setBody(
+                    $this->renderView(
+                    // app/Resources/views/Emails/registration.html.twig
+                        'emailConfirmation.html.twig',
+                        array('commande' => $commande)
+                    ),
+                    'text/html'
+                );
 
-        $mailer = $this->get('mailer');
-        $mailer->send($message);
+            $mailer = $this->get('mailer');
+            $mailer->send($message);
 
-        return $this->render('confirmation.html.twig');
+            return $this->render('confirmation.html.twig');
+        }
+
+        else{
+            return $this->render('error.html.twig');
+        }
     }
 
     // render the informations view

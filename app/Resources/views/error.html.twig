@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="billeterie du Louvre">
+    <meta name="author" content="Alexandre DRABCZUK">
+
+    <title>Billetterie du Musée du Louvre</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}" />
+    {% block stylesheets %}
+        <!-- Bootstrap core CSS -->
+        <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" >
+        <!-- Custom styles for this template -->
+        <link href="{{ asset('css/landing-page.css') }}" rel="stylesheet">
+    {% endblock %}
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="{{ path('louvre_home') }}">Billetterie Du Louvre</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('louvre_help') }}">Aide</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('louvre_informations') }}">Informations</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<aside class="banner">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 my-auto">
+                <h2>Tout est cassé!</h2>
+                <p> Un problème est survenu.</p>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+</aside>
+
+</br>
+
+<div class="container">
+    <div class="row">
+        <div> <h1>Vous vous êtes perdus!!</h1></br>
+            <p> Il semblerait que quelque chose se soit mal passé, nous nous excusons pour la gène occasionnée.</br>
+            <p> Nous vons invitons à redémarrer l'opération que vous cherchiez à effectuer, en passant par l'accueil.</p>
+            <a href="{{ path('louvre_home') }}" class="btn btn-secondary btn-lg">Retour à l'accueil</a>
+        </div>
+    </div></br>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a href="{{ path('louvre_home') }}">Accueil Billetterie</a>
+            </li>
+            <li class="footer-menu-divider list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+                <a href="{{ path('louvre_help') }}">Aide</a>
+            </li>
+            <li class="footer-menu-divider list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+                <a href="{{ path('louvre_informations') }}">Informations</a>
+            </li>
+            <li class="footer-menu-divider list-inline-item">&sdot;</li>
+        </ul>
+        <p class="copyright text-muted small">Copyright &copy; Alexandre DRABCZUK - Projet Billetterie du louvre</p>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{ asset('js/datepicker.js') }}" type="text/javascript"></script>
+
+
+</body>
+</html>

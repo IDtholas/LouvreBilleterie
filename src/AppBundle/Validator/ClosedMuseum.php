@@ -21,7 +21,7 @@ class ClosedMuseum extends Constraint
     /**
      * @var string
      */
-    public $message = "Le musée du Louvre est fermé le mardi, merci de choisir un autre jour.";
+    public $message = "Le musée du Louvre est fermé le mardi et le dimanche, merci de choisir un autre jour.";
 
     /**
      * @return string

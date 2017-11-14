@@ -24,13 +24,15 @@ class ClosedMuseumValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint)
     {
-        $closedDays = 'Tue';
+        $closedDays = ['Tue', 'Sun'];
         $day = date('D', $value->getTimeStamp());
-            if ($day === $closedDays) {
+        foreach( $closedDays as $closedDay) {
+            if ($day === $closedDay) {
                 $this->context->buildViolation($constraint->message)
                     ->addViolation();
             }
 
+        }
     }
 
 

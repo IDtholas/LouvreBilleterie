@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\wamp64\www\pX\src\AppBundle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/nv.d3.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.html">C:\wamp64\www\pX\src\AppBundle</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Validator/HolidayValidator.php.html#19">HolidayValidator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/PastDaysValidator.php.html#19">PastDaysValidator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/ClosedMuseumValidator.php.html#19">ClosedMuseumValidator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/BirthdayNotPassedValidator.php.html#19">BirthdayNotPassedValidator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Stripe.php.html#21">Stripe</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/AfternoonValidator.php.html#19">AfternoonValidator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/LouvreController.php.html#17">LouvreController</a></td><td class="text-right">39%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/LouvreController.php.html#17">LouvreController</a></td><td class="text-right">65</td></tr>
+       <tr><td><a href="Validator/ClosedMuseumValidator.php.html#19">ClosedMuseumValidator</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Validator/HolidayValidator.php.html#19">HolidayValidator</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Validator/AfternoonValidator.php.html#19">AfternoonValidator</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Service/Stripe.php.html#21">Stripe</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Validator/PastDaysValidator.php.html#19">PastDaysValidator</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Validator/BirthdayNotPassedValidator.php.html#19">BirthdayNotPassedValidator</a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Validator/BirthdayNotPassedValidator.php.html#25"><abbr title="BirthdayNotPassedValidator::validate">validate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/AfternoonValidator.php.html#25"><abbr title="AfternoonValidator::validate">validate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/ClosedMuseumValidator.php.html#25"><abbr title="ClosedMuseumValidator::validate">validate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/HolidayValidator.php.html#25"><abbr title="HolidayValidator::validate">validate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/PastDaysValidator.php.html#25"><abbr title="PastDaysValidator::validate">validate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Stripe.php.html#41"><abbr title="Stripe::chargeOrder">chargeOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Stripe.php.html#32"><abbr title="Stripe::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#77"><abbr title="Ticket::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Commande.php.html#90"><abbr title="Commande::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/LouvreController.php.html#106"><abbr title="LouvreController::checkoutAction">checkoutAction</abbr></a></td><td class="text-right">13%</td></tr>
+       <tr><td><a href="Controller/LouvreController.php.html#62"><abbr title="LouvreController::ticketAction">ticketAction</abbr></a></td><td class="text-right">40%</td></tr>
+       <tr><td><a href="Controller/LouvreController.php.html#177"><abbr title="LouvreController::retrieveAction">retrieveAction</abbr></a></td><td class="text-right">62%</td></tr>
+       <tr><td><a href="Controller/LouvreController.php.html#35"><abbr title="LouvreController::commandeAction">commandeAction</abbr></a></td><td class="text-right">62%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Validator/AfternoonValidator.php.html#25"><abbr title="AfternoonValidator::validate">validate</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Validator/ClosedMuseumValidator.php.html#25"><abbr title="ClosedMuseumValidator::validate">validate</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Validator/HolidayValidator.php.html#25"><abbr title="HolidayValidator::validate">validate</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/LouvreController.php.html#62"><abbr title="LouvreController::ticketAction">ticketAction</abbr></a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Validator/PastDaysValidator.php.html#25"><abbr title="PastDaysValidator::validate">validate</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Validator/BirthdayNotPassedValidator.php.html#25"><abbr title="BirthdayNotPassedValidator::validate">validate</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Service/Stripe.php.html#41"><abbr title="Stripe::chargeOrder">chargeOrder</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/LouvreController.php.html#106"><abbr title="LouvreController::checkoutAction">checkoutAction</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Controller/LouvreController.php.html#177"><abbr title="LouvreController::retrieveAction">retrieveAction</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Controller/LouvreController.php.html#35"><abbr title="LouvreController::commandeAction">commandeAction</abbr></a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 2.2.4</a> using <a href="https://secure.php.net/" target="_top">PHP 5.6.31</a> and <a href="https://phpunit.de/">PHPUnit 4.8.36</a> at Mon Nov 13 22:45:02 UTC 2017.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="js/holder.min.js" type="text/javascript"></script>
+  <script src="js/d3.min.js" type="text/javascript"></script>
+  <script src="js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([6,0,0,0,1,0,0,0,0,0,2,14], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([9,0,1,0,0,1,0,2,0,0,0,51], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,0,"<a href=\"AppBundle.php.html#7\">AppBundle<\/a>"],[39.285714285714,15,"<a href=\"Controller\/LouvreController.php.html#17\">LouvreController<\/a>"],[96.969696969697,21,"<a href=\"Entity\/Commande.php.html#13\">Commande<\/a>"],[95.454545454545,15,"<a href=\"Entity\/Ticket.php.html#13\">Ticket<\/a>"],[100,1,"<a href=\"Form\/CommandeType.php.html#20\">CommandeType<\/a>"],[100,1,"<a href=\"Form\/DebutCommandeType.php.html#31\">DebutCommandeType<\/a>"],[100,1,"<a href=\"Form\/SearchOrderType.php.html#21\">SearchOrderType<\/a>"],[100,2,"<a href=\"Form\/TicketType.php.html#25\">TicketType<\/a>"],[100,0,"<a href=\"Repository\/CommandeRepository.php.html#11\">CommandeRepository<\/a>"],[100,1,"<a href=\"Repository\/TicketRepository.php.html#11\">TicketRepository<\/a>"],[100,3,"<a href=\"Service\/LimitPerDay.php.html#21\">LimitPerDay<\/a>"],[100,8,"<a href=\"Service\/Price.php.html#17\">Price<\/a>"],[0,3,"<a href=\"Service\/Stripe.php.html#21\">Stripe<\/a>"],[100,1,"<a href=\"Validator\/Afternoon.php.html#18\">Afternoon<\/a>"],[0,3,"<a href=\"Validator\/AfternoonValidator.php.html#19\">AfternoonValidator<\/a>"],[100,1,"<a href=\"Validator\/BirthdayNotPassed.php.html#18\">BirthdayNotPassed<\/a>"],[0,2,"<a href=\"Validator\/BirthdayNotPassedValidator.php.html#19\">BirthdayNotPassedValidator<\/a>"],[100,1,"<a href=\"Validator\/ClosedMuseum.php.html#18\">ClosedMuseum<\/a>"],[0,3,"<a href=\"Validator\/ClosedMuseumValidator.php.html#19\">ClosedMuseumValidator<\/a>"],[100,1,"<a href=\"Validator\/Holiday.php.html#18\">Holiday<\/a>"],[0,3,"<a href=\"Validator\/HolidayValidator.php.html#19\">HolidayValidator<\/a>"],[100,1,"<a href=\"Validator\/PastDays.php.html#18\">PastDays<\/a>"],[0,2,"<a href=\"Validator\/PastDaysValidator.php.html#19\">PastDaysValidator<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Controller\/LouvreController.php.html#24\">LouvreController::homeAction<\/a>"],[62.5,3,"<a href=\"Controller\/LouvreController.php.html#35\">LouvreController::commandeAction<\/a>"],[40,4,"<a href=\"Controller\/LouvreController.php.html#62\">LouvreController::ticketAction<\/a>"],[13.636363636364,2,"<a href=\"Controller\/LouvreController.php.html#106\">LouvreController::checkoutAction<\/a>"],[100,1,"<a href=\"Controller\/LouvreController.php.html#156\">LouvreController::informationsAction<\/a>"],[100,1,"<a href=\"Controller\/LouvreController.php.html#166\">LouvreController::helpAction<\/a>"],[62.5,3,"<a href=\"Controller\/LouvreController.php.html#177\">LouvreController::retrieveAction<\/a>"],[0,1,"<a href=\"Entity\/Commande.php.html#90\">Commande::getId<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#102\">Commande::setResa<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#114\">Commande::getResa<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#126\">Commande::setNom<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#138\">Commande::getNom<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#150\">Commande::setPrenom<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#162\">Commande::getPrenom<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#174\">Commande::setDateDeVisite<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#186\">Commande::getDateDeVisite<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#198\">Commande::setEmail<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#210\">Commande::getEmail<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#222\">Commande::setTypeTicket<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#234\">Commande::getTypeTicket<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#246\">Commande::setPrixCommande<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#258\">Commande::getPrixCommande<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#270\">Commande::setDateDeCommande<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#282\">Commande::getDateDeCommande<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#289\">Commande::__construct<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#302\">Commande::addTicket<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#314\">Commande::removeTicket<\/a>"],[100,1,"<a href=\"Entity\/Commande.php.html#324\">Commande::getTickets<\/a>"],[0,1,"<a href=\"Entity\/Ticket.php.html#77\">Ticket::getId<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#89\">Ticket::setNomTicket<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#101\">Ticket::getNomTicket<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#113\">Ticket::setPrenomTicket<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#125\">Ticket::getPrenomTicket<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#137\">Ticket::setPays<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#149\">Ticket::getPays<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#161\">Ticket::setDateDeNaissance<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#173\">Ticket::getDateDeNaissance<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#185\">Ticket::setPrix<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#197\">Ticket::getPrix<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#209\">Ticket::setTarif<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#221\">Ticket::getTarif<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#233\">Ticket::setCommande<\/a>"],[100,1,"<a href=\"Entity\/Ticket.php.html#245\">Ticket::getCommande<\/a>"],[100,1,"<a href=\"Form\/CommandeType.php.html#26\">CommandeType::buildForm<\/a>"],[100,1,"<a href=\"Form\/DebutCommandeType.php.html#37\">DebutCommandeType::buildForm<\/a>"],[100,1,"<a href=\"Form\/SearchOrderType.php.html#27\">SearchOrderType::buildForm<\/a>"],[100,1,"<a href=\"Form\/TicketType.php.html#31\">TicketType::buildForm<\/a>"],[100,1,"<a href=\"Form\/TicketType.php.html#78\">TicketType::configureOptions<\/a>"],[100,1,"<a href=\"Repository\/TicketRepository.php.html#13\">TicketRepository::getTicketByDay<\/a>"],[100,1,"<a href=\"Service\/LimitPerDay.php.html#32\">LimitPerDay::__construct<\/a>"],[100,2,"<a href=\"Service\/LimitPerDay.php.html#42\">LimitPerDay::limitPerDay<\/a>"],[100,8,"<a href=\"Service\/Price.php.html#23\">Price::computePrice<\/a>"],[0,1,"<a href=\"Service\/Stripe.php.html#32\">Stripe::__construct<\/a>"],[0,2,"<a href=\"Service\/Stripe.php.html#41\">Stripe::chargeOrder<\/a>"],[100,1,"<a href=\"Validator\/Afternoon.php.html#28\">Afternoon::validatedBy<\/a>"],[0,3,"<a href=\"Validator\/AfternoonValidator.php.html#25\">AfternoonValidator::validate<\/a>"],[100,1,"<a href=\"Validator\/BirthdayNotPassed.php.html#28\">BirthdayNotPassed::validatedBy<\/a>"],[0,2,"<a href=\"Validator\/BirthdayNotPassedValidator.php.html#25\">BirthdayNotPassedValidator::validate<\/a>"],[100,1,"<a href=\"Validator\/ClosedMuseum.php.html#29\">ClosedMuseum::validatedBy<\/a>"],[0,3,"<a href=\"Validator\/ClosedMuseumValidator.php.html#25\">ClosedMuseumValidator::validate<\/a>"],[100,1,"<a href=\"Validator\/Holiday.php.html#28\">Holiday::validatedBy<\/a>"],[0,3,"<a href=\"Validator\/HolidayValidator.php.html#25\">HolidayValidator::validate<\/a>"],[100,1,"<a href=\"Validator\/PastDays.php.html#28\">PastDays::validatedBy<\/a>"],[0,2,"<a href=\"Validator\/PastDaysValidator.php.html#25\">PastDaysValidator::validate<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

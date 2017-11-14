@@ -38,10 +38,9 @@ class Stripe
      * @param $commande
      * @param Request $request
      */
-    public function chargeOrder($commande, Request $request)
+    public function chargeOrder($commande, $token)
     {
         \Stripe\Stripe::setApiKey($this->skapikey);
-        $token = $request->request->get('stripeToken');
         try {
             Charge::create(array(
                 'amount' => $commande->getPrixCommande() * 100,
