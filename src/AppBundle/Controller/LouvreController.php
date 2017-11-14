@@ -77,7 +77,7 @@ class LouvreController extends Controller
                 $session->set('commande', $commandePleine);
 
 
-                return $this->render('prepare.html.twig', array('commande' => $commandePleine));
+                return $this->redirectToRoute('louvre_prepare');
             }
 
             //if ticket limit is exceeded, render the form again with an error message
@@ -90,6 +90,14 @@ class LouvreController extends Controller
         return $this->render('ticket.html.twig', array('form' => $form->createView(), 'commande' => $commande));
     }
 
+
+    public function prepareAction(Request $request)
+    {
+        $session = $request->getSession();
+        $commande = $session->get('commande');
+        return $this->render('prepare.html.twig', array('commande' => $commande));
+
+    }
 
     /**
      * @param Request $request

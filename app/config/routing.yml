@@ -37,3 +37,10 @@ louvre_confirmation:
     path:   /commande/confirmation
     defaults: { _controller: AppBundle:Louvre:confirmation}
     methods:  [GET]
+
+louvre_prepare:
+    path:   /commande/prepare
+    defaults: { _controller: AppBundle:Louvre:prepare}
+    methods:  [GET]
+
+
