@@ -11,12 +11,12 @@ louvre_commande:
 louvre_ticket:
     path:   /commande/ticket
     defaults: { _controller: AppBundle:Louvre:ticket}
-    methods:  [GET, POST]
+    methods:  [GET]
 
 louvre_checkout:
     path:    /commande/checkout
     defaults: { _controller: AppBundle:Louvre:checkout}
-    methods:  [GET, POST]
+    methods:  [GET]
 
 louvre_informations:
     path:    /informations
@@ -31,4 +31,4 @@ louvre_help:
 louvre_retrieve:
     path:    /recuperationdecommande
     defaults: { _controller: AppBundle:Louvre:retrieve}
-    methods:  [GET, POST]
+    methods:  [GET]
