@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23c1c6c1-2c7e-4f55-a02b-2af7e56cd1b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/ticket.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/ticket.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/LouvreController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/LouvreController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Service/LimitPerDay.php" afterPath="$PROJECT_DIR$/src/AppBundle/Service/LimitPerDay.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/AppBundle/Controller/LouvreControllerTest.php" afterPath="$PROJECT_DIR$/tests/AppBundle/Controller/LouvreControllerTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,7 +43,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LouvreControllerTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LouvreControllerTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/LouvreControllerTest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="640">
@@ -88,12 +83,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="629">
-                <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <first_editor relative-caret-position="51">
+                <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -184,11 +179,11 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Validator/PastDaysValidator.php" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/AppBundle/Service/LimitPerDay.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/LouvreController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/ticket.html.twig" />
         <option value="$PROJECT_DIR$/tests/AppBundle/Controller/LouvreControllerTest.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -358,12 +353,12 @@
       <workItem from="1510572942936" duration="27450000" />
       <workItem from="1510654864299" duration="11726000" />
       <workItem from="1510685383304" duration="12895000" />
-      <workItem from="1510703484155" duration="2192000" />
+      <workItem from="1510703484155" duration="2550000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164948000" />
+    <option name="totallyTimeSpent" value="165306000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -685,10 +680,10 @@
         <state relative-caret-position="187">
           <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
           <folding>
-            <marker date="1510705674284" expanded="true" signature="45446:45465" ph="..." />
-            <marker date="1510705674284" expanded="true" signature="45446:45483" ph="..." />
-            <marker date="1510705674284" expanded="true" signature="45446:45496" ph="..." />
-            <marker date="1510705674284" expanded="true" signature="45446:45511" ph="..." />
+            <marker date="1510706042256" expanded="true" signature="44602:44621" ph="..." />
+            <marker date="1510706042256" expanded="true" signature="44602:44639" ph="..." />
+            <marker date="1510706042256" expanded="true" signature="44602:44652" ph="..." />
+            <marker date="1510706042256" expanded="true" signature="44602:44667" ph="..." />
           </folding>
         </state>
       </provider>
@@ -722,17 +717,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="629">
-            <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -781,6 +765,17 @@
         <state relative-caret-position="640">
           <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="51">
+            <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
