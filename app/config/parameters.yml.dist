@@ -4,11 +4,6 @@
 parameters:
     skapikey: sk_test_WPX5jeaspbkxlevLcL8Izm32
     pkapikey: pk_test_sepPe6kxjEpKEnIp3qfQ9tDV
-    database_host: alexandraplouvre.mysql.db
-    database_port: null
-    database_name: alexandraplouvre
-    database_user: alexandraplouvre
-    database_password: Louvreid01
     # You should uncomment this if you want to use pdo_sqlite
     #database_path: '%kernel.project_dir%/var/data/data.sqlite'
 

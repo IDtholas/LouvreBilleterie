@@ -45,7 +45,6 @@ class LimitPerDayTest extends KernelTestCase
     {
         return [
             ['2017-06-11', TRUE],
-            ['2017-11-25', FALSE],
         ];
     }
 

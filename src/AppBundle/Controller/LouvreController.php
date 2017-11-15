@@ -59,11 +59,10 @@ class LouvreController extends Controller
         $commande = $session->get('commandeA');
 
         if(isset($commande)) {
-            //create the collection Type form, for Ticket entity
+
             $form = $this->createForm(CommandeType::class, $commande);
             $form->handleRequest($request);
 
-            //if form is submitted and valid, check 1000 ticket limit, compute each ticket price and order price, then pass full order in session
             if ($form->isSubmitted() && $form->isValid()) {
 
                 $nbTicketByDay = $this->get('app.limitPerDay')->limitPerDay($commande);
@@ -75,13 +74,11 @@ class LouvreController extends Controller
 
                     $session = $request->getSession();
                     $session->set('commandeB', $commandePleine);
-                    $session->set('commandeA', null);
 
 
                     return $this->redirectToRoute('louvre_prepare');
                 }
 
-                //if ticket limit is exceeded, render the form again with an error message
                 $this->addFlash("error", "Il ne reste plus assez de places disponibles pour ce jour.");
                 return $this->render('ticket.html.twig', array('form' => $form->createView(), 'commande' => $commande));
 
@@ -92,7 +89,7 @@ class LouvreController extends Controller
         }
         else
         {
-            return $this->render('error.hmtl.twig');
+            return $this->render('error.html.twig');
         }
     }
 
@@ -101,6 +98,7 @@ class LouvreController extends Controller
     {
         $session = $request->getSession();
         $commande = $session->get('commandeB');
+        $session->set('commandeA', null);
 
         if(isset($commande)) {
             return $this->render('prepare.html.twig', array('commande' => $commande));
