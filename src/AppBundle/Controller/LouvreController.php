@@ -39,7 +39,7 @@ class LouvreController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $session = $request->getSession();
-            $session->set('commande', $commandeInSession);
+            $session->set('commandeA', $commandeInSession);
 
 
             return $this->redirectToRoute('louvre_ticket');
@@ -55,47 +55,59 @@ class LouvreController extends Controller
      */
     public function ticketAction(Request $request)
     {
-        //get order in session
         $session = $request->getSession();
-        $commande = $session->get('commande');
+        $commande = $session->get('commandeA');
 
-        //create the collection Type form, for Ticket entity
-        $form = $this->createForm(CommandeType::class, $commande);
-        $form->handleRequest($request);
+        if(isset($commande)) {
+            //create the collection Type form, for Ticket entity
+            $form = $this->createForm(CommandeType::class, $commande);
+            $form->handleRequest($request);
 
-        //if form is submitted and valid, check 1000 ticket limit, compute each ticket price and order price, then pass full order in session
-        if($form->isSubmitted() && $form->isValid()) {
+            //if form is submitted and valid, check 1000 ticket limit, compute each ticket price and order price, then pass full order in session
+            if ($form->isSubmitted() && $form->isValid()) {
 
-            $nbTicketByDay = $this->get('app.limitPerDay')->limitPerDay($commande);
+                $nbTicketByDay = $this->get('app.limitPerDay')->limitPerDay($commande);
 
-            if ($nbTicketByDay) {
+                if ($nbTicketByDay) {
 
-                $price = $this->get('app.price');
-                $commandePleine = $price->computePrice($commande);
+                    $price = $this->get('app.price');
+                    $commandePleine = $price->computePrice($commande);
 
-                $session = $request->getSession();
-                $session->set('commande', $commandePleine);
+                    $session = $request->getSession();
+                    $session->set('commandeB', $commandePleine);
+                    $session->set('commandeA', null);
 
 
-                return $this->redirectToRoute('louvre_prepare');
+                    return $this->redirectToRoute('louvre_prepare');
+                }
+
+                //if ticket limit is exceeded, render the form again with an error message
+                $this->addFlash("error", "Il ne reste plus assez de places disponibles pour ce jour.");
+                return $this->render('ticket.html.twig', array('form' => $form->createView(), 'commande' => $commande));
+
+
             }
 
-            //if ticket limit is exceeded, render the form again with an error message
-            $this->addFlash("error","Il ne reste plus assez de places disponibles pour ce jour.");
             return $this->render('ticket.html.twig', array('form' => $form->createView(), 'commande' => $commande));
-
-
         }
-
-        return $this->render('ticket.html.twig', array('form' => $form->createView(), 'commande' => $commande));
+        else
+        {
+            return $this->render('error.hmtl.twig');
+        }
     }
 
 
     public function prepareAction(Request $request)
     {
         $session = $request->getSession();
-        $commande = $session->get('commande');
-        return $this->render('prepare.html.twig', array('commande' => $commande));
+        $commande = $session->get('commandeB');
+
+        if(isset($commande)) {
+            return $this->render('prepare.html.twig', array('commande' => $commande));
+        }
+        else{
+            return $this->render('error.html.twig');
+        }
 
     }
 
@@ -110,7 +122,7 @@ class LouvreController extends Controller
         if (isset($token)) {
 
             $session = $request->getSession();
-            $commande = $session->get('commande');
+            $commande = $session->get('commandeB');
 
             $this->get('app.stripe')->chargeOrder($commande, $token);
 
@@ -134,6 +146,8 @@ class LouvreController extends Controller
 
             $mailer = $this->get('mailer');
             $mailer->send($message);
+
+            $session->set('commandeB', null);
 
             return $this->redirectToRoute('louvre_confirmation');
         }
@@ -193,11 +207,18 @@ class LouvreController extends Controller
     {
         $session = $request->getSession();
         $data = $session->get('searchdata');
+        $session->set('searchdata', null);
 
-        $commandesPassees = $this->getDoctrine()->getRepository(Commande::class)->findBy(array('email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
+        if(isset($data)) {
+            $commandesPassees = $this->getDoctrine()->getRepository(Commande::class)->findBy(array('email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
 
 
-        return $this->render('retrievedOrder.html.twig', array('commandesPassees' => $commandesPassees, 'email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
+            return $this->render('retrievedOrder.html.twig', array('commandesPassees' => $commandesPassees, 'email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
+        }
+        else
+        {
+            return $this->render('error.html.twig');
+        }
     }
 
 }

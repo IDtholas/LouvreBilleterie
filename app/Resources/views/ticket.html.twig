@@ -6,9 +6,19 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-12 my-auto">
+            <div class="col-lg-6 my-auto">
                 <h2>Complétez votre commande</h2>
                 <p> Merci de remplir les informations demandées</p>
+            </div>
+            <div class="col-lg-6 my-auto">
+                <ul class="list-inline banner-social-buttons">
+                    <li class="list-inline-item">
+                        <a href="{{ path('louvre_commande') }}" class="btn btn-secondary btn-lg">
+                            <i class="fa fa-ban fa-fw"></i>
+                            <span class="network-name">Recommencer ma commande.</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
 

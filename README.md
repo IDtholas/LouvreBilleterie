@@ -1,5 +1,6 @@
 Projet Billetterie Louvre
 ========================
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/cb2a2b10-5522-4642-8061-b49e7c74b4ff/big.png)](https://insight.sensiolabs.com/projects/cb2a2b10-5522-4642-8061-b49e7c74b4ff)
 
 Bienvenue sur mon projet 4 du parcours CPM-DEV consacré à la billetterie pour le musée du louvre.
 

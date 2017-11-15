@@ -50,8 +50,6 @@ class LimitPerDay
             {return TRUE;}
         else
             {return FALSE;}
-
-
     }
 
 }

@@ -47,21 +47,7 @@ class LouvreControllerTest extends WebTestCase
         $this->assertSame(200, $client->getResponse()->getStatusCode());
     }
 
-    public function testTicketIsUp()
-    {
-        $client = static::createClient();
-        $client->request('GET', '/commande/ticket');
 
-        $this->assertSame(200, $client->getResponse()->getStatusCode());
-    }
-
-    public function testCheckoutIsUp()
-    {
-        $client = static::createClient();
-        $client->request('GET', '/commande/checkout');
-
-        $this->assertSame(200, $client->getResponse()->getStatusCode());
-    }
 
     public function testRetrieveIsUp()
     {
