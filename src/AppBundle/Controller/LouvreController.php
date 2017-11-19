@@ -41,15 +41,8 @@ class LouvreController extends Controller
            $verif = $this->get('app.verifOrder');
             if($verif->verifAfternoon($commande))
             {
-                $this->addFlash("error2", "Il n'est pas possible de commander le billet journée entière après 14h.");
+                $this->addFlash("error", "Il n'est pas possible de commander le billet journée entière après 14h.");
                 return $this->redirectToRoute('louvre_commande');
-            }
-
-            if( $verif->verifPastDate($commande))
-            {
-                $this->addFlash("error1", "Il n'est pas possible de commander pour une date passée.");
-                return $this->redirectToRoute('louvre_commande');
-
             }
 
             $session = $request->getSession();
