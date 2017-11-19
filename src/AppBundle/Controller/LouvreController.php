@@ -31,15 +31,29 @@ class LouvreController extends Controller
      */
     public function commandeAction(Request $request)
     {
-        $commandeInSession = new Commande();
+        $commande = new Commande();
 
-
-        $form = $this->createForm(DebutCommandeType::class, $commandeInSession);
+        $form = $this->createForm(DebutCommandeType::class, $commande);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+           $verif = $this->get('app.verifOrder');
+            if($verif->verifAfternoon($commande))
+            {
+                $this->addFlash("error2", "Il n'est pas possible de commander le billet journée entière après 14h.");
+                return $this->redirectToRoute('louvre_commande');
+            }
+
+            if( $verif->verifPastDate($commande))
+            {
+                $this->addFlash("error1", "Il n'est pas possible de commander pour une date passée.");
+                return $this->redirectToRoute('louvre_commande');
+
+            }
+
             $session = $request->getSession();
-            $session->set('commandeA', $commandeInSession);
+            $session->set('commande', $commande);
 
 
             return $this->redirectToRoute('louvre_ticket');
@@ -56,7 +70,7 @@ class LouvreController extends Controller
     public function ticketAction(Request $request)
     {
         $session = $request->getSession();
-        $commande = $session->get('commandeA');
+        $commande = $session->get('commande');
 
         if(isset($commande)) {
 
@@ -73,7 +87,7 @@ class LouvreController extends Controller
                     $commandePleine = $price->computePrice($commande);
 
                     $session = $request->getSession();
-                    $session->set('commandeB', $commandePleine);
+                    $session->set('commande', $commandePleine);
 
 
                     return $this->redirectToRoute('louvre_prepare');
@@ -97,8 +111,7 @@ class LouvreController extends Controller
     public function prepareAction(Request $request)
     {
         $session = $request->getSession();
-        $commande = $session->get('commandeB');
-        $session->set('commandeA', null);
+        $commande = $session->get('commande');
 
         if(isset($commande)) {
             return $this->render('prepare.html.twig', array('commande' => $commande));
@@ -120,7 +133,7 @@ class LouvreController extends Controller
         if (isset($token)) {
 
             $session = $request->getSession();
-            $commande = $session->get('commandeB');
+            $commande = $session->get('commande');
 
             $this->get('app.stripe')->chargeOrder($commande, $token);
 
@@ -145,7 +158,7 @@ class LouvreController extends Controller
             $mailer = $this->get('mailer');
             $mailer->send($message);
 
-            $session->set('commandeB', null);
+            $session->set('commande', null);
 
             return $this->redirectToRoute('louvre_confirmation');
         }
@@ -183,7 +196,7 @@ class LouvreController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function retrieveAction(Request $request)
+    public function searchorderAction(Request $request)
     {
         $form = $this->createForm(SearchOrderType::class);
         $form->handleRequest($request);
@@ -195,13 +208,13 @@ class LouvreController extends Controller
             $session = $request->getSession();
             $session->set('searchdata', $data);
 
-            return $this->redirectToRoute('louvre_retrieved');
+            return $this->redirectToRoute('louvre_foundorder');
         }
 
-        return $this->render('retrieveOrder.html.twig', array('form' => $form->createView()));
+        return $this->render('searchOrder.html.twig', array('form' => $form->createView()));
     }
 
-    public function retrievedAction(Request $request)
+    public function foundorderAction(Request $request)
     {
         $session = $request->getSession();
         $data = $session->get('searchdata');
@@ -211,7 +224,7 @@ class LouvreController extends Controller
             $commandesPassees = $this->getDoctrine()->getRepository(Commande::class)->findBy(array('email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
 
 
-            return $this->render('retrievedOrder.html.twig', array('commandesPassees' => $commandesPassees, 'email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
+            return $this->render('foundOrder.html.twig', array('commandesPassees' => $commandesPassees, 'email' => $data['email'], 'nom' => $data['nom'], 'prenom' => $data['prenom']));
         }
         else
         {

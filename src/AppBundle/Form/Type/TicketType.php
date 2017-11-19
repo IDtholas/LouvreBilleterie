@@ -3,17 +3,13 @@
 
 namespace AppBundle\Form\Type;
 
-use AppBundle\Validator\BirthdayNotPassed;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
-use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Type;
@@ -62,15 +58,14 @@ class TicketType extends AbstractType
             ->add('dateDeNaissance', DateType::class,[
                 'constraints' => [
                     new NotBlank(),
-                    new BirthdayNotPassed(),
                 ],
                 'label' => 'Date de naissance :',
                 'widget' => 'single_text',
                 'format' => 'dd-MM-yyyy',
                 'html5' => false,
-                'label' => 'Date de naissance :',
                 'attr' => [
                     'class' => 'datepicker_birth',
+                    'placeholder' => 'JJ-MM-AAAA',
                 ],
             ]);
     }

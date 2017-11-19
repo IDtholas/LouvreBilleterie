@@ -1,10 +1,9 @@
 <?php
 namespace AppBundle\Form\Type;
 
-use AppBundle\Validator\Afternoon;
+
 use AppBundle\Validator\ClosedMuseum;
 use AppBundle\Validator\Holiday;
-use AppBundle\Validator\PastDays;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -59,8 +58,6 @@ class DebutCommandeType extends AbstractType
                 'constraints' => [
                     new NotBlank(),
                     new ClosedMuseum(),
-                    new Afternoon(),
-                    new PastDays(),
                     new Holiday(),
                 ],
                 'widget' => 'single_text',

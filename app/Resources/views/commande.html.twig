@@ -34,9 +34,25 @@
         {{ form_widget(form.dateDeVisite) }}
         <p class="help-text lead">Format demandé : JJ-MM-AAAA</p>
         {{ form_errors(form.dateDeVisite) }}
+        {% for message in app.flashes('error1') %}
+            <ul class="list-unstyled">
+                <li>
+                    <span class="glyphicon glyphicon-exclamation-sign"></span> {{ message }}
+                </li>
+            </ul>
+
+        {% endfor %}
         {{ form_errors(form.typeTicket) }}
         {{ form_label(form.typeTicket) }}
         {{ form_widget(form.typeTicket) }}
+        {% for message in app.flashes('error2') %}
+            <ul class="list-unstyled">
+                <li>
+                    <span class="glyphicon glyphicon-exclamation-sign"></span> {{ message }}
+                </li>
+            </ul>
+
+        {% endfor %}
         <br />
         <button type="submit" class="btn btn-secondary btn-lg" >Commander </button>
         {{ form_end(form) }}

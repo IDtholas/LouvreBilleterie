@@ -81,7 +81,7 @@ class LouvreControllerTest extends WebTestCase
 
 
 
-    public function testRetrieveIsUp()
+    public function testSearchOrderIsUp()
     {
         $client = static::createClient();
         $client->request('GET', '/recuperationdecommande');

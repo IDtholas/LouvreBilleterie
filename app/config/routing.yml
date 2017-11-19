@@ -28,9 +28,9 @@ louvre_help:
     defaults: { _controller: AppBundle:Louvre:help}
     methods:  [GET]
 
-louvre_retrieve:
+louvre_searchorder:
     path:    /recuperationdecommande
-    defaults: { _controller: AppBundle:Louvre:retrieve}
+    defaults: { _controller: AppBundle:Louvre:searchorder}
     methods:  [GET, POST]
 
 louvre_confirmation:
@@ -43,9 +43,9 @@ louvre_prepare:
     defaults: { _controller: AppBundle:Louvre:prepare}
     methods:  [GET]
 
-louvre_retrieved:
+louvre_foundorder:
     path:   /commanderecuperee
-    defaults: { _controller: AppBundle:Louvre:retrieved}
+    defaults: { _controller: AppBundle:Louvre:foundorder}
     methods:  [GET]
 
 

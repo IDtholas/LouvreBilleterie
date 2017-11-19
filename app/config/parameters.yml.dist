@@ -4,11 +4,11 @@
 parameters:
     skapikey: sk_test_WPX5jeaspbkxlevLcL8Izm32
     pkapikey: pk_test_sepPe6kxjEpKEnIp3qfQ9tDV
-    database_host: adadzdaz.dazd.db
+    database_host: azdazdza.db
     database_port:
-    database_name: louvreDB
-    database_user: userAB
-    database_password: passAB
+    database_name: louvrebilletterie
+    database_user: alfred
+    database_password: password
     # You should uncomment this if you want to use pdo_sqlite
     #database_path: '%kernel.project_dir%/var/data/data.sqlite'
 
